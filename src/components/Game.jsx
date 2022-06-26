@@ -63,13 +63,19 @@ const Game = () => {
     <div>
       <h1>Rock Paper Scissors Lizard Spock</h1>
 
-      {Object.keys(choices).map((key, i) => (
-        <button key={key} onClick={() => handleChoice(key)}>
-          <span role="img" aria-label={key} className="emoji">
-            {choices[key]}
-          </span>
-        </button>
-      ))}
+      <div className="button-group">
+        {Object.keys(choices).map((key, i) => (
+          <button
+            className="button"
+            key={key}
+            onClick={() => handleChoice(key)}
+          >
+            <span role="img" aria-label={key} className="emoji">
+              {choices[key]}
+            </span>
+          </button>
+        ))}
+      </div>
 
       <h1>Player One Choice: {playerOneChoice}</h1>
       <h1>Computer Choice: {computerChoice}</h1>
