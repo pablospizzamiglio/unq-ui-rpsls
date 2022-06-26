@@ -23,13 +23,13 @@ const Game = () => {
   const decrease = (s) => s - 1;
 
   const handleChoice = (choice) => {
-    const randomChoice = nextComputerChoice();
+    const randomChoice = nextRandomChoice();
     setComputerChoice(randomChoice);
     setPlayerOneChoice(choice);
     resolveRound(choice, randomChoice);
   };
 
-  const nextComputerChoice = () =>
+  const nextRandomChoice = () =>
     computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
   const beats = (choiceA, choiceB) => {

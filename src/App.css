@@ -14,7 +14,7 @@ body {
 }
 
 .button {
-  width: 4em;
   aspect-ratio: 1 / 1;
+  min-width: 4em;
   margin: 0.2em;
 }
