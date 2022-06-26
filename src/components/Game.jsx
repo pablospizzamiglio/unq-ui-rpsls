@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const Game = () => {
   const [playerOneChoice, setPlayerOneChoice] = useState(null);
@@ -19,16 +19,18 @@ const Game = () => {
 
   const computerChoices = Object.keys(choices);
 
+  const increase = (s) => s + 1;
+  const decrease = (s) => s - 1;
+
   const handleChoice = (choice) => {
+    const randomChoice = nextComputerChoice();
+    setComputerChoice(randomChoice);
     setPlayerOneChoice(choice);
-    generateComputerChoice();
+    resolveRound(choice, randomChoice);
   };
 
-  const generateComputerChoice = () => {
-    const randomChoice =
-      computerChoices[Math.floor(Math.random() * computerChoices.length)];
-    setComputerChoice(randomChoice);
-  };
+  const nextComputerChoice = () =>
+    computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
   const beats = (choiceA, choiceB) => {
     return (
@@ -45,19 +47,19 @@ const Game = () => {
     );
   };
 
-  useEffect(() => {
-    if (beats(playerOneChoice, computerChoice)) {
-      setResult("Player One Wins");
-      setPlayerOneScore(playerOneScore + 1);
-      setComputerScore(computerScore - 1);
-    } else if (beats(computerChoice, playerOneChoice)) {
-      setResult("Computer Wins");
-      setPlayerOneScore(playerOneScore - 1);
-      setComputerScore(computerScore + 1);
+  const resolveRound = (contenderAChoice, contenderBChoice) => {
+    if (beats(contenderAChoice, contenderBChoice)) {
+      setResult("You Won");
+      setPlayerOneScore(increase);
+      setComputerScore(decrease);
+    } else if (beats(contenderBChoice, contenderAChoice)) {
+      setResult("CPU Won");
+      setPlayerOneScore(decrease);
+      setComputerScore(increase);
     } else {
-      setResult("It's a tie!");
+      setResult("Draw!");
     }
-  }, [playerOneChoice, computerChoice]);
+  };
 
   return (
     <div>
@@ -77,10 +79,10 @@ const Game = () => {
         ))}
       </div>
 
-      <h1>Player One Choice: {playerOneChoice}</h1>
-      <h1>Computer Choice: {computerChoice}</h1>
+      <h1>Your Choice: {playerOneChoice}</h1>
+      <h1>CPU Choice: {computerChoice}</h1>
       <h1>
-        Score: P1 ({playerOneScore}) - CPU ({computerScore})
+        Score: You ({playerOneScore}) - CPU ({computerScore})
       </h1>
       <h1>{result}</h1>
     </div>
