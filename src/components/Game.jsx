@@ -47,17 +47,17 @@ const Game = () => {
     );
   };
 
-  const resolveRound = (contenderAChoice, contenderBChoice) => {
-    if (beats(contenderAChoice, contenderBChoice)) {
+  const resolveRound = (choiceA, choiceB) => {
+    if (beats(choiceA, choiceB)) {
       setResult("You Won");
       setPlayerOneScore(increase);
       setComputerScore(decrease);
-    } else if (beats(contenderBChoice, contenderAChoice)) {
+    } else if (beats(choiceB, choiceA)) {
       setResult("CPU Won");
       setPlayerOneScore(decrease);
       setComputerScore(increase);
     } else {
-      setResult("Draw!");
+      setResult("Draw");
     }
   };
 
@@ -66,14 +66,14 @@ const Game = () => {
       <h1>Rock Paper Scissors Lizard Spock</h1>
 
       <div className="button-group">
-        {Object.keys(choices).map((key, i) => (
+        {Object.keys(choices).map((choice) => (
           <button
             className="button"
-            key={key}
-            onClick={() => handleChoice(key)}
+            key={choice}
+            onClick={() => handleChoice(choice)}
           >
-            <span role="img" aria-label={key} className="emoji">
-              {choices[key]}
+            <span role="img" aria-label={choice} className="emoji">
+              {choices[choice]}
             </span>
           </button>
         ))}
