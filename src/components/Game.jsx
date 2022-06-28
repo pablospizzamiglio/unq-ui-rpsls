@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import StatusBar from "./bars/StatusBar";
 import ChoiceButton from "./buttons/ChoiceButton";
 
 const Game = () => {
@@ -106,7 +107,7 @@ const Game = () => {
 
   return (
     <div>
-      {/* <div className="hud">
+      <div className="hud">
         <StatusBar
           contenderName={"Player One"}
           currentHealth={5}
@@ -114,7 +115,7 @@ const Game = () => {
           currentRounds={0}
           maxRounds={5}
         />
-      </div> */}
+      </div>
 
       <h1>Rock Paper Scissors Lizard Spock</h1>
 
