@@ -141,6 +141,15 @@ const Game = () => {
           maxHealth={MAX_HEALTH}
           currentMedals={playerOneVictories}
           maxMedals={5}
+          mirrored={false}
+        />
+        <StatusBar
+          contenderName={"CPU"}
+          currentHealth={playerTwoHealth}
+          maxHealth={MAX_HEALTH}
+          currentMedals={playerTwoVictories}
+          maxMedals={5}
+          mirrored={true}
         />
       </div>
 

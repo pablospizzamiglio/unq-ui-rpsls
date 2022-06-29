@@ -8,17 +8,22 @@ const StatusBar = ({
   maxHealth,
   currentMedals,
   maxMedals,
+  mirrored,
 }) => {
   return (
-    <div className="status">
+    <div className="status-bar">
       <div className="status-item">
         <div className="contender">{contenderName}</div>
       </div>
       <div className="status-item">
-        <Health current={currentHealth} max={maxHealth} />
+        <Health current={currentHealth} max={maxHealth} mirrored={mirrored} />
       </div>
       <div className="status-item">
-        <Victories current={currentMedals} max={maxMedals} />
+        <Victories
+          current={currentMedals}
+          max={maxMedals}
+          mirrored={mirrored}
+        />
       </div>
     </div>
   );

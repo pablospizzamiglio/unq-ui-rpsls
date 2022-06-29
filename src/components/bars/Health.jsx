@@ -10,14 +10,18 @@ const Heart = ({ filled, width }) => {
   return <div className="heart">{heart}</div>;
 };
 
-const Health = ({ current, max }) => {
-  const heartElements = Array(max)
+const Health = ({ current, max, mirrored }) => {
+  let hearts = Array(max)
     .fill()
     .map((_, index) => {
       return <Heart key={index} filled={current >= index + 1} width={32} />;
     });
 
-  return <div className="health-bar">{heartElements}</div>;
+  if (mirrored) {
+    hearts.reverse();
+  }
+
+  return <div className="health-bar">{hearts}</div>;
 };
 
 export default Health;

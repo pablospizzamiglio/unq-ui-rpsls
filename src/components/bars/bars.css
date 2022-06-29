@@ -2,18 +2,25 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  justify-content: space-around;
+}
+
+.status-bar:last-child .status-item {
+  justify-content: end;
 }
 
 .status-item {
+  display: flex;
+  flex: 1;
   margin-top: 0.25em;
   margin-bottom: 0.25em;
 }
 
 .contender {
   font-size: 1.5rem;
-  display: flex;
-  align-items: flex-start;
+}
+
+.contender.end {
+  justify-content: end;
 }
 
 .health-bar {
