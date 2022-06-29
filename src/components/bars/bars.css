@@ -11,12 +11,10 @@
 .status-item {
   display: flex;
   flex: 1;
-  margin-top: 0.25em;
-  margin-bottom: 0.25em;
 }
 
 .contender {
-  font-size: 1.5rem;
+  font-size: 1.5em;
 }
 
 .contender.end {
@@ -50,7 +48,8 @@
 }
 
 .victories-count {
-  font-size: 2em;
+  font-size: 1.5em;
+  line-height: 0px;
   align-self: center;
   text-align: center;
 }
