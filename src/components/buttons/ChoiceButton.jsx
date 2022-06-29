@@ -1,3 +1,4 @@
+import Emoji from "components/emoji/Emoji";
 import "./ChoiceButton.css";
 
 const ChoiceButton = ({ onClick, choice }) => {
@@ -7,9 +8,7 @@ const ChoiceButton = ({ onClick, choice }) => {
 
   return (
     <button className="button" onClick={handleOnClick}>
-      <span role="img" aria-label={choice.name} className="emoji">
-        {choice.src}
-      </span>
+      <Emoji name={choice.name} code={choice.src} />
     </button>
   );
 };

@@ -110,7 +110,7 @@ const Game = () => {
       <div className="hud">
         <StatusBar
           contenderName={"Player One"}
-          currentHealth={5}
+          currentHealth={2}
           maxHealth={5}
           currentMedals={0}
           maxMedals={5}

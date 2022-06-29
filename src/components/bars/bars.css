@@ -23,7 +23,7 @@
   align-items: flex-start;
 }
 
-.hearts-grid {
+.health-bar {
   display: grid;
   grid-template-columns: repeat(5, 40px);
   gap: 0.2em;
@@ -35,19 +35,19 @@
   align-self: center;
 }
 
-.medals-grid {
+.victories-bar {
   display: grid;
   grid-template-columns: repeat(5, 40px);
   gap: 0.2em;
   align-items: center;
 }
 
-.medal {
+.donut {
   display: block;
   align-self: center;
 }
 
-.medal-count {
+.victories-count {
   font-size: 2em;
   align-self: center;
   text-align: center;
