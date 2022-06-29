@@ -1,9 +1,10 @@
-import Emoji from "components/emoji/Emoji";
+import FullHeart from "./images/red-heart_2764-fe0f.png";
+import EmptyHeart from "./images/white-heart_1f90d.png";
 
-const Heart = ({ filled }) => {
-  let heart = <Emoji name={"empty-heart"} code={"🤍"} />;
+const Heart = ({ filled, width }) => {
+  let heart = <img src={EmptyHeart} alt="Full Heart" width={width} />;
   if (filled) {
-    heart = <Emoji name={"full-heart"} code={"❤"} />;
+    heart = <img src={FullHeart} alt="Full Heart" width={width} />;
   }
 
   return <div className="heart">{heart}</div>;
@@ -13,7 +14,7 @@ const Health = ({ current, max }) => {
   const heartElements = Array(max)
     .fill()
     .map((_, index) => {
-      return <Heart key={index} filled={current >= index + 1} />;
+      return <Heart key={index} filled={current >= index + 1} width={32} />;
     });
 
   return <div className="health-bar">{heartElements}</div>;

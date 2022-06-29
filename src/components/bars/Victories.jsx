@@ -1,17 +1,9 @@
-import Emoji from "components/emoji/Emoji";
-
-const Donut = () => {
-  return (
-    <div className="medals">
-      <Emoji name={"donut"} code={"🍩"} />
-    </div>
-  );
-};
+import Donut from "./images/doughnut_1f369.png";
 
 const Victories = ({ current, max }) => {
   return (
     <div className="victories-bar">
-      <Donut />
+      <img src={Donut} alt="Full Heart" width={32} />
       <div className="victories-count">{current}</div>
     </div>
   );

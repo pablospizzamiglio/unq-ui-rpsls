@@ -25,26 +25,28 @@
 
 .health-bar {
   display: grid;
-  grid-template-columns: repeat(5, 40px);
-  gap: 0.2em;
+  grid-template-columns: repeat(5, 32px);
+  gap: 3px;
   align-items: center;
 }
 
 .heart {
-  display: block;
-  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .victories-bar {
   display: grid;
-  grid-template-columns: repeat(5, 40px);
+  grid-template-columns: repeat(2, 32px);
   gap: 0.2em;
   align-items: center;
 }
 
-.donut {
-  display: block;
-  align-self: center;
+.victory {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .victories-count {
