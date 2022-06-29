@@ -1,29 +1,3 @@
 body {
   font-size: 16px;
 }
-
-.hud {
-  /* display: flex; */
-  /* position: absolute; */
-  /* top: 2em; */
-  /* left: 2em; */
-}
-
-.status-bar {
-  /* display: flex; */
-  /* position: absolute; */
-  /* top: 2em; */
-  /* left: 2em; */
-}
-
-.hearts-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 40px);
-}
-
-.heart {
-  width: 32px;
-  margin-right: 6px;
-  margin-bottom: 6px;
-  display: block;
-}

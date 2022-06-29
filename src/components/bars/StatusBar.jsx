@@ -1,3 +1,4 @@
+import "./bars.css";
 import Health from "./Health";
 import Medals from "./Medals";
 
@@ -10,9 +11,15 @@ const StatusBar = ({
 }) => {
   return (
     <div className="status">
-      <div>{contenderName}</div>
-      <Health current={currentHealth} max={maxHealth} />
-      <Medals current={currentMedals} max={maxMedals} />
+      <div className="status-item">
+        <div className="contender">{contenderName}</div>
+      </div>
+      <div className="status-item">
+        <Health current={currentHealth} max={maxHealth} />
+      </div>
+      <div className="status-item">
+        <Medals current={currentMedals} max={maxMedals} />
+      </div>
     </div>
   );
 };

@@ -1,0 +1,56 @@
+/* .hud {
+  display: flex;
+  position: absolute;
+  top: 2em;
+  left: 2em;
+} */
+
+.status-bar {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.status-item {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}
+
+.contender {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.hearts-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 40px);
+  gap: 0.2em;
+  align-items: center;
+}
+
+.heart {
+  /* width: 32px; */
+  display: block;
+  align-self: center;
+}
+
+.medals-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 40px);
+  gap: 0.2em;
+  align-items: center;
+}
+
+.medal {
+  /* width: 32px; */
+  display: block;
+  align-self: center;
+}
+
+.medal-count {
+  font-size: 2em;
+  align-self: center;
+  text-align: center;
+}
