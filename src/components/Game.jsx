@@ -83,7 +83,7 @@ const Game = () => {
 
   const resolveRound = (choiceA, choiceB) => {
     const increase = (s) => s + 1;
-    const decrease = (s) => s - 1;
+    const decrease = (s) => (s > 0 ? s - 1 : 0);
 
     if (beats(choiceA, choiceB)) {
       setRoundWinner("Player One");
