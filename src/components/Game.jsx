@@ -13,6 +13,7 @@ import Scissors from "./images/scissors.png";
 import Spock from "./images/spock.png";
 
 const Game = () => {
+  const MAX_HEALTH = 5;
   const [playerOneChoice, setPlayerOneChoice] = useState(null);
   const [computerChoice, setComputerChoice] = useState(null);
   const [playerOneScore, setPlayerOneScore] = useState(0);
@@ -20,6 +21,10 @@ const Game = () => {
   const [roundWinner, setRoundWinner] = useState(null);
   const [winner, setWinner] = useState(null);
   const [isGameOver, setIsGameOver] = useState(false);
+  const [playerOneHealth, setPlayerOneHealth] = useState(MAX_HEALTH);
+  const [playerOneVictories, setPlayerOneVictories] = useState(0);
+  const [playerTwoHealth, setPlayerTwoHealth] = useState(MAX_HEALTH);
+  const [playerTwoVictories, setPlayerTwoVictories] = useState(0);
 
   const choices = [
     {
@@ -78,13 +83,16 @@ const Game = () => {
 
   const resolveRound = (choiceA, choiceB) => {
     const increase = (s) => s + 1;
+    const decrease = (s) => s - 1;
 
     if (beats(choiceA, choiceB)) {
       setRoundWinner("Player One");
       setPlayerOneScore(increase);
+      setPlayerTwoHealth(decrease);
     } else if (beats(choiceB, choiceA)) {
       setRoundWinner("CPU");
       setComputerScore(increase);
+      setPlayerOneHealth(decrease);
     } else {
       setRoundWinner("Draw");
     }
@@ -93,9 +101,11 @@ const Game = () => {
   useEffect(() => {
     if (playerOneScore === 5) {
       setWinner("Player One");
+      setPlayerOneVictories((s) => s + 1);
       setIsGameOver(true);
     } else if (computerScore === 5) {
       setWinner("CPU");
+      setPlayerTwoVictories((s) => s + 1);
       setIsGameOver(true);
     }
   }, [playerOneScore, computerScore]);
@@ -108,6 +118,8 @@ const Game = () => {
     setRoundWinner(null);
     setWinner(null);
     setIsGameOver(false);
+    setPlayerOneHealth(MAX_HEALTH);
+    setPlayerTwoHealth(MAX_HEALTH);
   };
 
   if (isGameOver) {
@@ -125,9 +137,9 @@ const Game = () => {
       <div className="hud">
         <StatusBar
           contenderName={"Player One"}
-          currentHealth={2}
+          currentHealth={playerOneHealth}
           maxHealth={5}
-          currentMedals={0}
+          currentMedals={playerOneVictories}
           maxMedals={5}
         />
       </div>
