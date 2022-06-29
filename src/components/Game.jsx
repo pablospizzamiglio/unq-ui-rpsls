@@ -138,7 +138,7 @@ const Game = () => {
         <StatusBar
           contenderName={"Player One"}
           currentHealth={playerOneHealth}
-          maxHealth={5}
+          maxHealth={MAX_HEALTH}
           currentMedals={playerOneVictories}
           maxMedals={5}
         />
