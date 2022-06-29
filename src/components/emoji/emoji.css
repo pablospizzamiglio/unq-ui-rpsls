@@ -1,0 +1,5 @@
+.emoji {
+  /* TODO: incluir una fuente consistente de emojis */
+  font-family: "Noto Color Emoji", "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 2em;
+}
