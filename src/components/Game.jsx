@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
 import StatusBar from "./bars/StatusBar";
 import ChoiceButton from "./buttons/ChoiceButton";
-import PinchingHand from "./images/pinching-hand_1f90f.png";
-import RaisedFist from "./images/raised-fist_270a.png";
-import RaisedHand from "./images/raised-hand_270b.png";
-import VictoryHand from "./images/victory-hand_270c-fe0f.png";
-import VulkanSalute from "./images/vulcan-salute_1f596.png";
+// import PinchingHand from "./images/pinching-hand_1f90f.png";
+// import RaisedFist from "./images/raised-fist_270a.png";
+// import RaisedHand from "./images/raised-hand_270b.png";
+// import VictoryHand from "./images/victory-hand_270c-fe0f.png";
+// import VulkanSalute from "./images/vulcan-salute_1f596.png";
+import Lizard from "./images/lizard.png";
+import Paper from "./images/paper.png";
+import Rock from "./images/rock.png";
+import Scissors from "./images/scissors.png";
+import Spock from "./images/spock.png";
 
 const Game = () => {
   const [playerOneChoice, setPlayerOneChoice] = useState(null);
@@ -19,23 +24,28 @@ const Game = () => {
   const choices = [
     {
       name: "rock",
-      src: RaisedFist,
+      // src: RaisedFist,
+      src: Rock,
     },
     {
       name: "paper",
-      src: RaisedHand,
+      // src: RaisedHand,
+      src: Paper,
     },
     {
       name: "scissors",
-      src: VictoryHand,
+      // src: VictoryHand,
+      src: Scissors,
     },
     {
       name: "lizard",
-      src: PinchingHand,
+      // src: PinchingHand,
+      src: Lizard,
     },
     {
       name: "spock",
-      src: VulkanSalute,
+      // src: VulkanSalute,
+      src: Spock,
     },
   ];
 

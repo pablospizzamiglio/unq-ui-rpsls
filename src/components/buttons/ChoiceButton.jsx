@@ -5,9 +5,14 @@ const ChoiceButton = ({ onClick, choice }) => {
     onClick(choice.name);
   };
 
+  const style = {
+    backgroundImage: `url(${choice.src})`,
+    backgroundSize: "cover",
+  };
+
   return (
-    <button className="button" onClick={handleOnClick}>
-      <img src={choice.src} alt={choice.name} width={32} />
+    <button className="button" onClick={handleOnClick} style={style}>
+      {/* <img src={choice.src} alt={choice.name} height={32} /> */}
     </button>
   );
 };
