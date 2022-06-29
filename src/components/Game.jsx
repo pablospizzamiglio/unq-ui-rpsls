@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import StatusBar from "./bars/StatusBar";
 import ChoiceButton from "./buttons/ChoiceButton";
+import PinchingHand from "./images/pinching-hand_1f90f.png";
+import RaisedFist from "./images/raised-fist_270a.png";
+import RaisedHand from "./images/raised-hand_270b.png";
+import VictoryHand from "./images/victory-hand_270c-fe0f.png";
+import VulkanSalute from "./images/vulcan-salute_1f596.png";
 
 const Game = () => {
   const [playerOneChoice, setPlayerOneChoice] = useState(null);
@@ -14,23 +19,23 @@ const Game = () => {
   const choices = [
     {
       name: "rock",
-      src: "✊",
+      src: RaisedFist,
     },
     {
       name: "paper",
-      src: "✋",
+      src: RaisedHand,
     },
     {
       name: "scissors",
-      src: "✌",
+      src: VictoryHand,
     },
     {
       name: "lizard",
-      src: "🤏",
+      src: PinchingHand,
     },
     {
       name: "spock",
-      src: "🖖",
+      src: VulkanSalute,
     },
   ];
 
