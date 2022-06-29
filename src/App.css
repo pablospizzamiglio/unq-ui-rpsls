@@ -3,17 +3,17 @@ body {
 }
 
 .hud {
-  display: flex;
+  /* display: flex; */
   /* position: absolute; */
-  top: 2em;
-  left: 2em;
+  /* top: 2em; */
+  /* left: 2em; */
 }
 
 .status-bar {
-  display: flex;
+  /* display: flex; */
   /* position: absolute; */
-  top: 2em;
-  left: 2em;
+  /* top: 2em; */
+  /* left: 2em; */
 }
 
 .hearts-grid {

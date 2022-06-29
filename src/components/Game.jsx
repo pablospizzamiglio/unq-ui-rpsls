@@ -112,8 +112,8 @@ const Game = () => {
           contenderName={"Player One"}
           currentHealth={5}
           maxHealth={5}
-          currentRounds={0}
-          maxRounds={5}
+          currentMedals={0}
+          maxMedals={5}
         />
       </div>
 

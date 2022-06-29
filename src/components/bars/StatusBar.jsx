@@ -1,17 +1,18 @@
 import Health from "./Health";
+import Medals from "./Medals";
 
 const StatusBar = ({
   contenderName,
   currentHealth,
   maxHealth,
-  currentRounds,
-  maxRounds,
+  currentMedals,
+  maxMedals,
 }) => {
   return (
     <div className="status">
-      <Health current={currentHealth} max={maxHealth} />
       <div>{contenderName}</div>
-      {/* <Round current={currentRounds} max={maxRounds} /> */}
+      <Health current={currentHealth} max={maxHealth} />
+      <Medals current={currentMedals} max={maxMedals} />
     </div>
   );
 };
