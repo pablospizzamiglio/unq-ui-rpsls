@@ -31,7 +31,6 @@
 }
 
 .heart {
-  /* width: 32px; */
   display: block;
   align-self: center;
 }
@@ -44,7 +43,6 @@
 }
 
 .medal {
-  /* width: 32px; */
   display: block;
   align-self: center;
 }

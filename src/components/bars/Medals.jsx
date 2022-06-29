@@ -1,9 +1,9 @@
-export const Medal = ({ width }) => (
+export const Medal = () => (
   <svg
-    // width={width}
+    className="medal"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 -0.5 16 16"
-    shape-rendering="crispEdges"
+    shapeRendering="crispEdges"
   >
     <path
       stroke="#000000"
@@ -34,7 +34,7 @@ const Round = ({ current, max }) => {
 
   return (
     <div className="medals-grid">
-      <Medal width={32} />
+      <Medal />
       <div className="medal-count" style={{ color }}>
         {current}
       </div>
