@@ -2,7 +2,7 @@ import FullHeart from "./images/red-heart_2764-fe0f.png";
 import EmptyHeart from "./images/white-heart_1f90d.png";
 
 const Heart = ({ filled, width }) => {
-  let heart = <img src={EmptyHeart} alt="Full Heart" width={width} />;
+  let heart = <img src={EmptyHeart} alt="Empty Heart" width={width} />;
   if (filled) {
     heart = <img src={FullHeart} alt="Full Heart" width={width} />;
   }
