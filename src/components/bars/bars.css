@@ -4,28 +4,29 @@
   flex-direction: column;
 }
 
-.status-bar:last-child .status-item {
-  justify-content: end;
-}
-
 .status-item {
   display: flex;
   flex: 1;
+  flex-direction: row;
+}
+
+.status-bar:last-child .status-item {
+  justify-content: end;
 }
 
 .contender {
   font-size: 1.5em;
 }
 
-.contender.end {
-  justify-content: end;
+.health-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  gap: 3px;
 }
 
-.health-bar {
-  display: grid;
-  grid-template-columns: repeat(5, 32px);
-  gap: 3px;
-  align-items: center;
+.status-bar:last-child .health-bar {
+  flex-direction: row-reverse;
 }
 
 .heart {
@@ -35,21 +36,21 @@
 }
 
 .victories-bar {
-  display: grid;
-  grid-template-columns: repeat(2, 32px);
-  gap: 0.2em;
-  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  gap: 3px;
+}
+
+.status-bar:last-child .victories-bar {
+  flex-direction: row-reverse;
 }
 
 .victory {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .victories-count {
   font-size: 1.5em;
-  line-height: 0px;
-  align-self: center;
-  text-align: center;
 }
