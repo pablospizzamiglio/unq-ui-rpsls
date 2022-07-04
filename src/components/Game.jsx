@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import StatusBar from "./bars/StatusBar";
+import Status from "./bars/Status";
 import ChoiceButton from "./buttons/ChoiceButton";
 import Lizard from "./images/lizard.png";
 import Paper from "./images/paper.png";
@@ -118,13 +118,13 @@ const Game = () => {
   return (
     <div>
       <div className="hud">
-        <StatusBar
+        <Status
           contenderName={"Player One"}
           currentHealth={playerOneHealth}
           maxHealth={MAX_HEALTH}
           currentMedals={playerOneVictories}
         />
-        <StatusBar
+        <Status
           contenderName={"CPU"}
           currentHealth={playerTwoHealth}
           maxHealth={MAX_HEALTH}

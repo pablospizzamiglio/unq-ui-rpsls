@@ -2,12 +2,7 @@ import "./bars.css";
 import Health from "./Health";
 import Victories from "./Victories";
 
-const StatusBar = ({
-  contenderName,
-  currentHealth,
-  maxHealth,
-  currentMedals,
-}) => {
+const Status = ({ contenderName, currentHealth, maxHealth, currentMedals }) => {
   return (
     <div className="status-bar">
       <div className="status-item">
@@ -23,4 +18,4 @@ const StatusBar = ({
   );
 };
 
-export default StatusBar;
+export default Status;
