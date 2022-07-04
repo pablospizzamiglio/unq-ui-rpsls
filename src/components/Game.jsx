@@ -1,11 +1,6 @@
 import { useEffect, useState } from "react";
 import StatusBar from "./bars/StatusBar";
 import ChoiceButton from "./buttons/ChoiceButton";
-// import PinchingHand from "./images/pinching-hand_1f90f.png";
-// import RaisedFist from "./images/raised-fist_270a.png";
-// import RaisedHand from "./images/raised-hand_270b.png";
-// import VictoryHand from "./images/victory-hand_270c-fe0f.png";
-// import VulkanSalute from "./images/vulcan-salute_1f596.png";
 import Lizard from "./images/lizard.png";
 import Paper from "./images/paper.png";
 import Rock from "./images/rock.png";
@@ -16,8 +11,6 @@ const Game = () => {
   const MAX_HEALTH = 5;
   const [playerOneChoice, setPlayerOneChoice] = useState(null);
   const [computerChoice, setComputerChoice] = useState(null);
-  const [playerOneScore, setPlayerOneScore] = useState(0);
-  const [computerScore, setComputerScore] = useState(0);
   const [roundWinner, setRoundWinner] = useState(null);
   const [winner, setWinner] = useState(null);
   const [isGameOver, setIsGameOver] = useState(false);
@@ -29,27 +22,22 @@ const Game = () => {
   const choices = [
     {
       name: "rock",
-      // src: RaisedFist,
       src: Rock,
     },
     {
       name: "paper",
-      // src: RaisedHand,
       src: Paper,
     },
     {
       name: "scissors",
-      // src: VictoryHand,
       src: Scissors,
     },
     {
       name: "lizard",
-      // src: PinchingHand,
       src: Lizard,
     },
     {
       name: "spock",
-      // src: VulkanSalute,
       src: Spock,
     },
   ];
@@ -82,16 +70,13 @@ const Game = () => {
   };
 
   const resolveRound = (choiceA, choiceB) => {
-    const increase = (s) => s + 1;
     const decrease = (s) => (s > 0 ? s - 1 : 0);
 
     if (beats(choiceA, choiceB)) {
       setRoundWinner("Player One");
-      setPlayerOneScore(increase);
       setPlayerTwoHealth(decrease);
     } else if (beats(choiceB, choiceA)) {
       setRoundWinner("CPU");
-      setComputerScore(increase);
       setPlayerOneHealth(decrease);
     } else {
       setRoundWinner("Draw");
@@ -99,22 +84,20 @@ const Game = () => {
   };
 
   useEffect(() => {
-    if (playerOneScore === 5) {
+    if (playerTwoHealth === 0) {
       setWinner("Player One");
       setPlayerOneVictories((s) => s + 1);
       setIsGameOver(true);
-    } else if (computerScore === 5) {
+    } else if (playerOneHealth === 0) {
       setWinner("CPU");
       setPlayerTwoVictories((s) => s + 1);
       setIsGameOver(true);
     }
-  }, [playerOneScore, computerScore]);
+  }, [playerOneHealth, playerTwoHealth]);
 
   const resetGame = () => {
     setPlayerOneChoice(null);
     setComputerChoice(null);
-    setPlayerOneScore(0);
-    setComputerScore(0);
     setRoundWinner(null);
     setWinner(null);
     setIsGameOver(false);
@@ -140,24 +123,17 @@ const Game = () => {
           currentHealth={playerOneHealth}
           maxHealth={MAX_HEALTH}
           currentMedals={playerOneVictories}
-          maxMedals={5}
-          mirrored={false}
         />
         <StatusBar
           contenderName={"CPU"}
           currentHealth={playerTwoHealth}
           maxHealth={MAX_HEALTH}
           currentMedals={playerTwoVictories}
-          maxMedals={5}
-          mirrored={true}
         />
       </div>
 
       <h1>Rock Paper Scissors Lizard Spock</h1>
 
-      <h1>
-        Score: You ({playerOneScore}) | CPU ({computerScore})
-      </h1>
       <h1>Your Choice: {playerOneChoice}</h1>
       <h1>CPU Choice: {computerChoice}</h1>
       <h1>Round Winner: {roundWinner}</h1>

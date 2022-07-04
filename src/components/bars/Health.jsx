@@ -6,21 +6,15 @@ const Heart = ({ filled, width }) => {
   if (filled) {
     heart = <img src={FullHeart} alt="Full Heart" width={width} />;
   }
-
   return <div className="heart">{heart}</div>;
 };
 
-const Health = ({ current, max, mirrored }) => {
+const Health = ({ current, max }) => {
   let hearts = Array(max)
     .fill()
     .map((_, index) => {
       return <Heart key={index} filled={current >= index + 1} width={32} />;
     });
-
-  if (mirrored) {
-    hearts.reverse();
-  }
-
   return <div className="health-bar">{hearts}</div>;
 };
 

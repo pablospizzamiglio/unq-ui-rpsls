@@ -7,8 +7,6 @@ const StatusBar = ({
   currentHealth,
   maxHealth,
   currentMedals,
-  maxMedals,
-  mirrored,
 }) => {
   return (
     <div className="status-bar">
@@ -16,14 +14,10 @@ const StatusBar = ({
         <div className="contender">{contenderName}</div>
       </div>
       <div className="status-item">
-        <Health current={currentHealth} max={maxHealth} mirrored={mirrored} />
+        <Health current={currentHealth} max={maxHealth} />
       </div>
       <div className="status-item">
-        <Victories
-          current={currentMedals}
-          max={maxMedals}
-          mirrored={mirrored}
-        />
+        <Victories current={currentMedals} />
       </div>
     </div>
   );
