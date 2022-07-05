@@ -11,11 +11,15 @@
   justify-content: center;
   align-items: flex-start;
   padding-top: 16em;
+  transition: opacity 0.15s linear; /* Opacity will fade smoothly */
 }
 
 .modal-content {
   width: 300px;
   background-color: white;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
 }
 
 @media (min-width: 576px) {
@@ -24,9 +28,14 @@
   }
 }
 
-.modal-header,
-.modal-footer {
-  padding: 10px;
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #e9ecef;
+  border-top-left-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
 }
 
 .modal-title {
@@ -34,12 +43,25 @@
 }
 
 .modal-body {
-  padding: 10px;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+  position: relative;
+  flex: 1 1 auto;
+  padding: 1rem;
 }
 
 .modal-footer {
   display: flex;
+  align-items: center;
   justify-content: flex-end;
+  padding: 1rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.modal.invisible {
+  opacity: 0;
+  pointer-events: none; /* Makes the modal unclickable */
+}
+
+.modal.visible {
+  opacity: 1;
+  pointer-events: initial; /* Makes the modal clickable */
 }
