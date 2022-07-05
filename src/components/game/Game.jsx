@@ -1,3 +1,4 @@
+import Modal from "components/modal/Modal";
 import { useEffect, useState } from "react";
 import Status from "../bars/Status";
 import Board from "../board/Board";
@@ -69,6 +70,7 @@ const Game = () => {
   const [playerOneVictories, setPlayerOneVictories] = useState(0);
   const [playerTwoHealth, setPlayerTwoHealth] = useState(MAX_HEALTH);
   const [playerTwoVictories, setPlayerTwoVictories] = useState(0);
+  const [show, setShow] = useState(false);
 
   const handleChoice = (choice) => {
     const randomCard = nextCard();
@@ -113,16 +115,6 @@ const Game = () => {
     setPlayerTwoHealth(MAX_HEALTH);
   };
 
-  if (isGameOver) {
-    return (
-      <div className="game">
-        <h1>Rock Paper Scissors Lizard Spock</h1>
-        <h1 style={{ textTransform: "uppercase" }}>{`${winner} WINS!`}</h1>
-        <button onClick={resetGame}>Play Again!</button>
-      </div>
-    );
-  }
-
   return (
     <div className="game">
       <div className="hud">
@@ -149,6 +141,15 @@ const Game = () => {
           <ClickableCard key={card.name} onClick={handleChoice} card={card} />
         ))}
       </div>
+
+      <Modal
+        title="Rock Paper Scissors Lizard Spock"
+        show={isGameOver}
+        onClose={() => resetGame()}
+      >
+        <p style={{ textTransform: "uppercase" }}>{`${winner} WINS!`}</p>
+      </Modal>
+      {/* <button onClick={() => setShow(true)}>Show Modal</button> */}
     </div>
   );
 };
