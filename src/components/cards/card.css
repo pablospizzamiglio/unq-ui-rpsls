@@ -36,6 +36,12 @@
   cursor: pointer;
   outline: inherit;
   max-width: 150px;
+  transition: 0.4s;
+}
+
+.card-button:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2), 2px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 @media (min-width: 576px) {
