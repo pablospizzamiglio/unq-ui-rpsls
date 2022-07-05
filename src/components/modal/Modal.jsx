@@ -13,7 +13,7 @@ const Modal = ({ title, show, onConfirm, onClose, children }) => {
             Main Menu
           </button>
           <button className="modal-button" onClick={onConfirm}>
-            Play Again!
+            Play Again
           </button>
         </div>
       </div>
