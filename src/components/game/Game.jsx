@@ -59,21 +59,24 @@ const beats = (choiceA, choiceB) => {
   );
 };
 
+const playerOneLabel = "Player One";
+const playerTwoLabel = "CPU";
+
 const Game = () => {
   const MAX_HEALTH = 5;
   const [playerOneChoice, setPlayerOneChoice] = useState(placeholderCard);
-  const [computerChoice, setComputerChoice] = useState(placeholderCard);
+  const [playerOneHealth, setPlayerOneHealth] = useState(MAX_HEALTH);
+  const [playerOneVictories, setPlayerOneVictories] = useState(0);
+  const [playerTwoChoice, setPlayerTwoChoice] = useState(placeholderCard);
+  const [playerTwoHealth, setPlayerTwoHealth] = useState(MAX_HEALTH);
+  const [playerTwoVictories, setPlayerTwoVictories] = useState(0);
   const [roundWinner, setRoundWinner] = useState(null);
   const [winner, setWinner] = useState(null);
   const [isGameOver, setIsGameOver] = useState(false);
-  const [playerOneHealth, setPlayerOneHealth] = useState(MAX_HEALTH);
-  const [playerOneVictories, setPlayerOneVictories] = useState(0);
-  const [playerTwoHealth, setPlayerTwoHealth] = useState(MAX_HEALTH);
-  const [playerTwoVictories, setPlayerTwoVictories] = useState(0);
 
   const handleChoice = (choice) => {
     const randomCard = nextCard();
-    setComputerChoice(randomCard);
+    setPlayerTwoChoice(randomCard);
     setPlayerOneChoice(choice);
     resolveRound(choice, randomCard);
   };
@@ -82,10 +85,10 @@ const Game = () => {
     const decrease = (s) => (s > 0 ? s - 1 : 0);
 
     if (beats(choiceA.name, choiceB.name)) {
-      setRoundWinner("Player One");
+      setRoundWinner(playerOneLabel);
       setPlayerTwoHealth(decrease);
     } else if (beats(choiceB.name, choiceA.name)) {
-      setRoundWinner("CPU");
+      setRoundWinner(playerTwoLabel);
       setPlayerOneHealth(decrease);
     } else {
       setRoundWinner("Draw");
@@ -94,11 +97,11 @@ const Game = () => {
 
   useEffect(() => {
     if (playerTwoHealth === 0) {
-      setWinner("Player One");
+      setWinner(playerOneLabel);
       setPlayerOneVictories((s) => s + 1);
       setIsGameOver(true);
     } else if (playerOneHealth === 0) {
-      setWinner("CPU");
+      setWinner(playerTwoLabel);
       setPlayerTwoVictories((s) => s + 1);
       setIsGameOver(true);
     }
@@ -106,7 +109,7 @@ const Game = () => {
 
   const resetGame = () => {
     setPlayerOneChoice(placeholderCard);
-    setComputerChoice(placeholderCard);
+    setPlayerTwoChoice(placeholderCard);
     setRoundWinner(null);
     setWinner(null);
     setIsGameOver(false);
@@ -118,20 +121,20 @@ const Game = () => {
     <div className="game">
       <div className="hud">
         <Status
-          contenderName={"Player One"}
+          contenderName={playerOneLabel}
           currentHealth={playerOneHealth}
           maxHealth={MAX_HEALTH}
           currentMedals={playerOneVictories}
         />
         <Status
-          contenderName={"CPU"}
+          contenderName={playerTwoLabel}
           currentHealth={playerTwoHealth}
           maxHealth={MAX_HEALTH}
           currentMedals={playerTwoVictories}
         />
       </div>
 
-      <Board cardA={playerOneChoice} cardB={computerChoice} />
+      <Board cardA={playerOneChoice} cardB={playerTwoChoice} />
 
       <h1>Round Winner: {roundWinner}</h1>
 
