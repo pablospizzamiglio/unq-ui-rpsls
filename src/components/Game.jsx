@@ -1,16 +1,67 @@
 import { useEffect, useState } from "react";
 import Status from "./bars/Status";
-import ChoiceButton from "./buttons/ChoiceButton";
+import Board from "./board/Board";
+import ClickableCard from "./cards/ClickableCard";
+import "./game.css";
 import Lizard from "./images/lizard.png";
+import Placeholder from "./images/mrx.png";
 import Paper from "./images/paper.png";
 import Rock from "./images/rock.png";
 import Scissors from "./images/scissors.png";
 import Spock from "./images/spock.png";
 
+const placeholderCard = {
+  name: "placeholder",
+  src: Placeholder,
+};
+
+const cards = [
+  {
+    name: "rock",
+    src: Rock,
+  },
+  {
+    name: "paper",
+    src: Paper,
+  },
+  {
+    name: "scissors",
+    src: Scissors,
+  },
+  {
+    name: "lizard",
+    src: Lizard,
+  },
+  {
+    name: "spock",
+    src: Spock,
+  },
+];
+
+const nextRandomElement = (elements) =>
+  elements[Math.floor(Math.random() * elements.length)];
+
+const nextCard = () => nextRandomElement(cards);
+
+const beats = (choiceA, choiceB) => {
+  return (
+    (choiceA === "scissors" && choiceB === "paper") ||
+    (choiceA === "paper" && choiceB === "rock") ||
+    (choiceA === "rock" && choiceB === "lizard") ||
+    (choiceA === "lizard" && choiceB === "spock") ||
+    (choiceA === "spock" && choiceB === "scissors") ||
+    (choiceA === "scissors" && choiceB === "lizard") ||
+    (choiceA === "lizard" && choiceB === "paper") ||
+    (choiceA === "paper" && choiceB === "spock") ||
+    (choiceA === "spock" && choiceB === "rock") ||
+    (choiceA === "rock" && choiceB === "scissors")
+  );
+};
+
 const Game = () => {
   const MAX_HEALTH = 5;
-  const [playerOneChoice, setPlayerOneChoice] = useState(null);
-  const [computerChoice, setComputerChoice] = useState(null);
+  const [playerOneChoice, setPlayerOneChoice] = useState(placeholderCard);
+  const [computerChoice, setComputerChoice] = useState(placeholderCard);
   const [roundWinner, setRoundWinner] = useState(null);
   const [winner, setWinner] = useState(null);
   const [isGameOver, setIsGameOver] = useState(false);
@@ -19,63 +70,20 @@ const Game = () => {
   const [playerTwoHealth, setPlayerTwoHealth] = useState(MAX_HEALTH);
   const [playerTwoVictories, setPlayerTwoVictories] = useState(0);
 
-  const choices = [
-    {
-      name: "rock",
-      src: Rock,
-    },
-    {
-      name: "paper",
-      src: Paper,
-    },
-    {
-      name: "scissors",
-      src: Scissors,
-    },
-    {
-      name: "lizard",
-      src: Lizard,
-    },
-    {
-      name: "spock",
-      src: Spock,
-    },
-  ];
-
-  const choiceNames = choices.map((choice) => choice.name);
-
   const handleChoice = (choice) => {
-    const randomChoice = nextRandomChoice();
+    const randomChoice = nextCard();
     setComputerChoice(randomChoice);
     setPlayerOneChoice(choice);
     resolveRound(choice, randomChoice);
   };
 
-  const nextRandomChoice = () =>
-    choiceNames[Math.floor(Math.random() * choiceNames.length)];
-
-  const beats = (choiceA, choiceB) => {
-    return (
-      (choiceA === "scissors" && choiceB === "paper") ||
-      (choiceA === "paper" && choiceB === "rock") ||
-      (choiceA === "rock" && choiceB === "lizard") ||
-      (choiceA === "lizard" && choiceB === "spock") ||
-      (choiceA === "spock" && choiceB === "scissors") ||
-      (choiceA === "scissors" && choiceB === "lizard") ||
-      (choiceA === "lizard" && choiceB === "paper") ||
-      (choiceA === "paper" && choiceB === "spock") ||
-      (choiceA === "spock" && choiceB === "rock") ||
-      (choiceA === "rock" && choiceB === "scissors")
-    );
-  };
-
   const resolveRound = (choiceA, choiceB) => {
     const decrease = (s) => (s > 0 ? s - 1 : 0);
 
-    if (beats(choiceA, choiceB)) {
+    if (beats(choiceA.name, choiceB.name)) {
       setRoundWinner("Player One");
       setPlayerTwoHealth(decrease);
-    } else if (beats(choiceB, choiceA)) {
+    } else if (beats(choiceB.name, choiceA.name)) {
       setRoundWinner("CPU");
       setPlayerOneHealth(decrease);
     } else {
@@ -96,8 +104,8 @@ const Game = () => {
   }, [playerOneHealth, playerTwoHealth]);
 
   const resetGame = () => {
-    setPlayerOneChoice(null);
-    setComputerChoice(null);
+    setPlayerOneChoice(placeholderCard);
+    setComputerChoice(placeholderCard);
     setRoundWinner(null);
     setWinner(null);
     setIsGameOver(false);
@@ -107,7 +115,7 @@ const Game = () => {
 
   if (isGameOver) {
     return (
-      <div>
+      <div className="game">
         <h1>Rock Paper Scissors Lizard Spock</h1>
         <h1 style={{ textTransform: "uppercase" }}>{`${winner} WINS!`}</h1>
         <button onClick={resetGame}>Play Again!</button>
@@ -116,7 +124,7 @@ const Game = () => {
   }
 
   return (
-    <div>
+    <div className="game">
       <div className="hud">
         <Status
           contenderName={"Player One"}
@@ -132,15 +140,13 @@ const Game = () => {
         />
       </div>
 
-      <h1>Rock Paper Scissors Lizard Spock</h1>
+      <Board cardA={playerOneChoice} cardB={computerChoice} />
 
-      <h1>Your Choice: {playerOneChoice}</h1>
-      <h1>CPU Choice: {computerChoice}</h1>
       <h1>Round Winner: {roundWinner}</h1>
 
-      <div className="button-group">
-        {choices.map((choice, i) => (
-          <ChoiceButton key={i} onClick={handleChoice} choice={choice} />
+      <div className="card-group">
+        {cards.map((card) => (
+          <ClickableCard key={card.name} onClick={handleChoice} card={card} />
         ))}
       </div>
     </div>

@@ -1,0 +1,31 @@
+.game {
+  /* padding: 10px; */
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  gap: 5px;
+}
+
+@media (min-width: 992px) {
+  .game {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .game {
+    max-width: 1140px;
+  }
+}
+
+.hud {
+  display: flex;
+}
+
+.card-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 10px;
+}
