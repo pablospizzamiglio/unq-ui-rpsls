@@ -1,10 +1,6 @@
 import "./modal.css";
 
 const Modal = ({ title, show, onClose, children }) => {
-  // if (!show) {
-  //   return <></>;
-  // }
-
   return (
     <div className={`modal ${show ? "visible" : "invisible"}`}>
       <div className="modal-content">
