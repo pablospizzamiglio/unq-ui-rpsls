@@ -9,11 +9,11 @@ const Modal = ({ title, show, onConfirm, onClose, children }) => {
         </div>
         <div className="modal-body">{children}</div>
         <div className="modal-footer">
-          <button className="modal-button" onClick={onConfirm}>
-            Play Again!
-          </button>
           <button className="modal-button" onClick={onClose}>
             Main Menu
+          </button>
+          <button className="modal-button" onClick={onConfirm}>
+            Play Again!
           </button>
         </div>
       </div>
