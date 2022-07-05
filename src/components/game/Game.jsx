@@ -144,6 +144,7 @@ const Game = () => {
       <Modal
         title="Rock Paper Scissors Lizard Spock"
         show={isGameOver}
+        onConfirm={() => resetGame()}
         onClose={() => resetGame()}
       >
         <p style={{ textTransform: "uppercase" }}>{`${winner} WINS!`}</p>
