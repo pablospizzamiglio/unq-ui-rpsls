@@ -1,6 +1,6 @@
 import "./modal.css";
 
-const Modal = ({ title, show, onClose, children }) => {
+const Modal = ({ title, show, onConfirm, onClose, children }) => {
   return (
     <div className={`modal ${show ? "visible" : "invisible"}`}>
       <div className="modal-content">
@@ -9,11 +9,11 @@ const Modal = ({ title, show, onClose, children }) => {
         </div>
         <div className="modal-body">{children}</div>
         <div className="modal-footer">
-          <button className="modal-button" onClick={onClose}>
-            Main Menu
+          <button className="modal-button" onClick={onConfirm}>
+            Play Again!
           </button>
           <button className="modal-button" onClick={onClose}>
-            Play Again!
+            Main Menu
           </button>
         </div>
       </div>
