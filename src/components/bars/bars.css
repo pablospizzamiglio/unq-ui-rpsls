@@ -29,29 +29,29 @@
   flex-direction: row-reverse;
 }
 
-.heart {
+.health-unit {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.victories-bar {
+.trophy-bar {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   gap: 0.2rem;
 }
 
-.status-bar:last-child .victories-bar {
+.status-bar:last-child .trophy-bar {
   flex-direction: row-reverse;
 }
 
-.victories-item {
+.trophy-item {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.victories-count {
+.trophy-count {
   font-size: 1.5rem;
 }

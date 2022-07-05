@@ -1,12 +1,13 @@
 import EmptyHeart from "components/icons/EmptyHeart";
 import FullHeart from "components/icons/FullHeart";
+import "./bars.css";
 
 const HealthUnit = ({ filled, width }) => {
   let unit = <EmptyHeart width={width} />;
   if (filled) {
     unit = <FullHeart width={width} />;
   }
-  return <div className="heart">{unit}</div>;
+  return <div className="health-unit">{unit}</div>;
 };
 
 const Health = ({ current, max }) => {

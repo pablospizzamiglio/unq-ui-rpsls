@@ -1,6 +1,6 @@
 import "./bars.css";
 import Health from "./Health";
-import Victories from "./Victories";
+import Trophies from "./Trophies";
 
 const Status = ({ contenderName, currentHealth, maxHealth, currentMedals }) => {
   return (
@@ -12,7 +12,7 @@ const Status = ({ contenderName, currentHealth, maxHealth, currentMedals }) => {
         <Health current={currentHealth} max={maxHealth} />
       </div>
       <div className="status-item">
-        <Victories current={currentMedals} />
+        <Trophies current={currentMedals} />
       </div>
     </div>
   );

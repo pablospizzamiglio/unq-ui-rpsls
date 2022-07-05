@@ -68,10 +68,10 @@ const Game = ({ onMainMenuClick }) => {
   const MAX_HEALTH = 5;
   const [playerOneChoice, setPlayerOneChoice] = useState(placeholderCard);
   const [playerOneHealth, setPlayerOneHealth] = useState(MAX_HEALTH);
-  const [playerOneVictories, setPlayerOneVictories] = useState(0);
+  const [playerOneTrophies, setPlayerOneTrophies] = useState(0);
   const [playerTwoChoice, setPlayerTwoChoice] = useState(placeholderCard);
   const [playerTwoHealth, setPlayerTwoHealth] = useState(MAX_HEALTH);
-  const [playerTwoVictories, setPlayerTwoVictories] = useState(0);
+  const [playerTwoTrophies, setPlayerTwoTrophies] = useState(0);
   const [message, setMessage] = useState(DEFAULT_MESSAGE);
   const [winner, setWinner] = useState(null);
   const [isGameOver, setIsGameOver] = useState(false);
@@ -100,11 +100,11 @@ const Game = ({ onMainMenuClick }) => {
   useEffect(() => {
     if (playerTwoHealth === 0) {
       setWinner(playerOneLabel);
-      setPlayerOneVictories((s) => s + 1);
+      setPlayerOneTrophies((s) => s + 1);
       setIsGameOver(true);
     } else if (playerOneHealth === 0) {
       setWinner(playerTwoLabel);
-      setPlayerTwoVictories((s) => s + 1);
+      setPlayerTwoTrophies((s) => s + 1);
       setIsGameOver(true);
     }
   }, [playerOneHealth, playerTwoHealth]);
@@ -126,13 +126,13 @@ const Game = ({ onMainMenuClick }) => {
           contenderName={playerOneLabel}
           currentHealth={playerOneHealth}
           maxHealth={MAX_HEALTH}
-          currentMedals={playerOneVictories}
+          currentMedals={playerOneTrophies}
         />
         <Status
           contenderName={playerTwoLabel}
           currentHealth={playerTwoHealth}
           maxHealth={MAX_HEALTH}
-          currentMedals={playerTwoVictories}
+          currentMedals={playerTwoTrophies}
         />
       </div>
 
