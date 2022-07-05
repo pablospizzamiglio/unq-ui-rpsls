@@ -64,7 +64,7 @@ const playerOneLabel = "Player One";
 const playerTwoLabel = "CPU";
 const DEFAULT_MESSAGE = "Welcome to Rock Paper Scissors Lizard Spock!";
 
-const Game = () => {
+const Game = ({ onMainMenuClick }) => {
   const MAX_HEALTH = 5;
   const [playerOneChoice, setPlayerOneChoice] = useState(placeholderCard);
   const [playerOneHealth, setPlayerOneHealth] = useState(MAX_HEALTH);
@@ -150,7 +150,10 @@ const Game = () => {
         title="Rock Paper Scissors Lizard Spock"
         show={isGameOver}
         onConfirm={() => resetGame()}
-        onClose={() => resetGame()}
+        onClose={() => {
+          resetGame();
+          onMainMenuClick();
+        }}
       >
         <p style={{ textTransform: "uppercase" }}>{`${winner} WINS!`}</p>
       </Modal>
