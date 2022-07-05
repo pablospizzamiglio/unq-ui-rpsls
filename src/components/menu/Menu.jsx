@@ -1,6 +1,6 @@
 import "./menu.css";
 
-const Menu = ({ onSinglePlayerClick }) => {
+const Menu = ({ onOnePlayerClick, onTwoPlayersClick }) => {
   return (
     <div className="menu">
       <div className="menu-item">
@@ -8,11 +8,11 @@ const Menu = ({ onSinglePlayerClick }) => {
       </div>
       <div className="menu-item">
         <div className="menu-button-group">
-          <button className="button" onClick={onSinglePlayerClick}>
+          <button className="button" onClick={onOnePlayerClick}>
             1 Player
           </button>
-          <button className="button" onClick={onSinglePlayerClick}>
-            2 Player
+          <button className="button" onClick={onTwoPlayersClick}>
+            2 Players
           </button>
         </div>
       </div>
