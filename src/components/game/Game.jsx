@@ -70,7 +70,6 @@ const Game = () => {
   const [playerOneVictories, setPlayerOneVictories] = useState(0);
   const [playerTwoHealth, setPlayerTwoHealth] = useState(MAX_HEALTH);
   const [playerTwoVictories, setPlayerTwoVictories] = useState(0);
-  const [show, setShow] = useState(false);
 
   const handleChoice = (choice) => {
     const randomCard = nextCard();
