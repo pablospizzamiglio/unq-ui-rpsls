@@ -21,7 +21,7 @@
 .health-bar {
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: flex-start;
   gap: 3px;
 }
 
@@ -38,7 +38,7 @@
 .victories-bar {
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: flex-start;
   gap: 3px;
 }
 
