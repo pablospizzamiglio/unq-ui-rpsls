@@ -1,0 +1,12 @@
+.board {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+.board-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
