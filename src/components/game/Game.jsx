@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import Status from "./bars/Status";
-import Board from "./board/Board";
-import ClickableCard from "./cards/ClickableCard";
+import Status from "../bars/Status";
+import Board from "../board/Board";
+import ClickableCard from "../cards/ClickableCard";
+import Lizard from "../images/lizard.png";
+import Placeholder from "../images/mrx.png";
+import Paper from "../images/paper.png";
+import Rock from "../images/rock.png";
+import Scissors from "../images/scissors.png";
+import Spock from "../images/spock.png";
 import "./game.css";
-import Lizard from "./images/lizard.png";
-import Placeholder from "./images/mrx.png";
-import Paper from "./images/paper.png";
-import Rock from "./images/rock.png";
-import Scissors from "./images/scissors.png";
-import Spock from "./images/spock.png";
 
 const placeholderCard = {
   name: "placeholder",
@@ -71,10 +71,10 @@ const Game = () => {
   const [playerTwoVictories, setPlayerTwoVictories] = useState(0);
 
   const handleChoice = (choice) => {
-    const randomChoice = nextCard();
-    setComputerChoice(randomChoice);
+    const randomCard = nextCard();
+    setComputerChoice(randomCard);
     setPlayerOneChoice(choice);
-    resolveRound(choice, randomChoice);
+    resolveRound(choice, randomCard);
   };
 
   const resolveRound = (choiceA, choiceB) => {
