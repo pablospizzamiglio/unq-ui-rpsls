@@ -1,7 +1,8 @@
+import Announcer from "components/announcer/Announcer";
+import Status from "components/bars/Status";
+import Board from "components/board/Board";
 import Modal from "components/modal/Modal";
 import { useEffect, useState } from "react";
-import Status from "../bars/Status";
-import Board from "../board/Board";
 import ClickableCard from "../cards/ClickableCard";
 import Lizard from "../images/lizard.png";
 import Placeholder from "../images/mrx.png";
@@ -61,6 +62,7 @@ const beats = (choiceA, choiceB) => {
 
 const playerOneLabel = "Player One";
 const playerTwoLabel = "CPU";
+const DEFAULT_MESSAGE = "Welcome to Rock Paper Scissors Lizard Spock!";
 
 const Game = () => {
   const MAX_HEALTH = 5;
@@ -70,7 +72,7 @@ const Game = () => {
   const [playerTwoChoice, setPlayerTwoChoice] = useState(placeholderCard);
   const [playerTwoHealth, setPlayerTwoHealth] = useState(MAX_HEALTH);
   const [playerTwoVictories, setPlayerTwoVictories] = useState(0);
-  const [roundWinner, setRoundWinner] = useState(null);
+  const [message, setMessage] = useState(DEFAULT_MESSAGE);
   const [winner, setWinner] = useState(null);
   const [isGameOver, setIsGameOver] = useState(false);
 
@@ -85,13 +87,13 @@ const Game = () => {
     const decrease = (s) => (s > 0 ? s - 1 : 0);
 
     if (beats(choiceA.name, choiceB.name)) {
-      setRoundWinner(playerOneLabel);
       setPlayerTwoHealth(decrease);
+      setMessage(`${playerOneLabel} wins the round!`);
     } else if (beats(choiceB.name, choiceA.name)) {
-      setRoundWinner(playerTwoLabel);
       setPlayerOneHealth(decrease);
+      setMessage(`${playerTwoLabel} wins the round!`);
     } else {
-      setRoundWinner("Draw");
+      setMessage(`It's a tie!`);
     }
   };
 
@@ -110,11 +112,11 @@ const Game = () => {
   const resetGame = () => {
     setPlayerOneChoice(placeholderCard);
     setPlayerTwoChoice(placeholderCard);
-    setRoundWinner(null);
     setWinner(null);
     setIsGameOver(false);
     setPlayerOneHealth(MAX_HEALTH);
     setPlayerTwoHealth(MAX_HEALTH);
+    setMessage(DEFAULT_MESSAGE);
   };
 
   return (
@@ -136,7 +138,7 @@ const Game = () => {
 
       <Board cardA={playerOneChoice} cardB={playerTwoChoice} />
 
-      <h1>Round Winner: {roundWinner}</h1>
+      <Announcer message={message} />
 
       <div className="card-group">
         {cards.map((card) => (
@@ -152,7 +154,6 @@ const Game = () => {
       >
         <p style={{ textTransform: "uppercase" }}>{`${winner} WINS!`}</p>
       </Modal>
-      {/* <button onClick={() => setShow(true)}>Show Modal</button> */}
     </div>
   );
 };
