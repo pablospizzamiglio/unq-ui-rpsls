@@ -37,6 +37,7 @@
   cursor: pointer;
   outline: inherit;
   max-width: 150px;
+  border-radius: 0.3rem;
   transition: 0.4s;
 }
 
