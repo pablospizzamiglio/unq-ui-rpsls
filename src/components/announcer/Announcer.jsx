@@ -38,7 +38,7 @@ const Announcer = ({ message }) => {
   return (
     <div className="announcer">
       <div className="announcer-item">
-        <h1>{message}</h1>
+        <p className="announcer-message">{message}</p>
       </div>
     </div>
   );
