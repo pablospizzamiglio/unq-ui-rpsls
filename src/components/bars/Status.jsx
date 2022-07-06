@@ -6,7 +6,7 @@ const Status = ({ contenderName, currentHealth, maxHealth, currentMedals }) => {
   return (
     <div className="status-bar">
       <div className="status-item">
-        <div className="contender">{contenderName}</div>
+        <div className="contender-name">{contenderName}</div>
       </div>
       <div className="status-item">
         <Health value={currentHealth} maxValue={maxHealth} />

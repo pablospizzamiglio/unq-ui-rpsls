@@ -14,8 +14,26 @@
   justify-content: end;
 }
 
-.contender {
+.contender-name {
   font-size: 1.5rem;
+}
+
+@media (min-width: 992px) {
+  .contender-name {
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .contender-name {
+    font-size: 2.1rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .contender-name {
+    font-size: 2.4rem;
+  }
 }
 
 .health-bar {
