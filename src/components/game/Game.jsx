@@ -2,20 +2,14 @@ import Announcer from "components/announcer/Announcer";
 import Status from "components/bars/Status";
 import Board from "components/board/Board";
 import Modal from "components/modal/Modal";
-import { useEffect, useState } from "react";
-import ClickableCard from "../cards/ClickableCard";
+import CardPicker from "components/picker/CardPicker";
+import { useCallback, useEffect, useState } from "react";
 import Lizard from "../images/lizard.png";
-import Placeholder from "../images/mrx.png";
 import Paper from "../images/paper.png";
 import Rock from "../images/rock.png";
 import Scissors from "../images/scissors.png";
 import Spock from "../images/spock.png";
 import "./game.css";
-
-const placeholderCard = {
-  name: "placeholder",
-  src: Placeholder,
-};
 
 const cards = [
   {
@@ -60,76 +54,119 @@ const beats = (choiceA, choiceB) => {
   );
 };
 
-const playerOneLabel = "Player One";
-const playerTwoLabel = "CPU";
-const DEFAULT_MESSAGE = "Welcome to Rock Paper Scissors Lizard Spock!";
+const WELCOME_MESSAGE = "Welcome to Rock Paper Scissors Lizard Spock!";
+const increase = (i) => i + 1;
+const decrease = (i) => (i > 0 ? i - 1 : 0);
 
-const Game = ({ onMainMenuClick }) => {
+const Game = ({
+  onMainMenuClick,
+  playerOneName,
+  playerTwoName,
+  vsCPU = false,
+}) => {
   const MAX_HEALTH = 5;
-  const [playerOneChoice, setPlayerOneChoice] = useState(placeholderCard);
+  const [playerOneChoice, setPlayerOneChoice] = useState(null);
   const [playerOneHealth, setPlayerOneHealth] = useState(MAX_HEALTH);
   const [playerOneTrophies, setPlayerOneTrophies] = useState(0);
-  const [playerTwoChoice, setPlayerTwoChoice] = useState(placeholderCard);
+  const [playerTwoChoice, setPlayerTwoChoice] = useState(null);
   const [playerTwoHealth, setPlayerTwoHealth] = useState(MAX_HEALTH);
   const [playerTwoTrophies, setPlayerTwoTrophies] = useState(0);
-  const [message, setMessage] = useState(DEFAULT_MESSAGE);
+  const [message, setMessage] = useState("");
   const [winner, setWinner] = useState(null);
   const [isGameOver, setIsGameOver] = useState(false);
+  const [turn, setTurn] = useState(1);
+  const [round, setRound] = useState(0);
+  const [inputDisabled, setInputDisabled] = useState(false);
 
-  const handleChoice = (choice) => {
-    const randomCard = nextCard();
-    setPlayerTwoChoice(randomCard);
+  const handlePlayerOneChoice = (choice) => {
     setPlayerOneChoice(choice);
-    resolveRound(choice, randomCard);
+
+    if (vsCPU) {
+      const randomCard = nextCard();
+      setPlayerTwoChoice(randomCard);
+    } else {
+      setMessage(`${playerTwoName}'s turn.`);
+      setTurn(2);
+    }
   };
 
-  const resolveRound = (choiceA, choiceB) => {
-    const decrease = (s) => (s > 0 ? s - 1 : 0);
-
-    if (beats(choiceA.name, choiceB.name)) {
-      setPlayerTwoHealth(decrease);
-      setMessage(`${playerOneLabel} wins the round!`);
-    } else if (beats(choiceB.name, choiceA.name)) {
-      setPlayerOneHealth(decrease);
-      setMessage(`${playerTwoLabel} wins the round!`);
-    } else {
-      setMessage(`It's a tie!`);
-    }
+  const handlePlayerTwoChoice = (choice) => {
+    setPlayerTwoChoice(choice);
   };
 
   useEffect(() => {
+    if (vsCPU) {
+      setMessage(WELCOME_MESSAGE);
+    } else {
+      setMessage(`${playerOneName}'s turn.`);
+    }
+  }, [vsCPU, playerOneName]);
+
+  useEffect(() => {
     if (playerTwoHealth === 0) {
-      setWinner(playerOneLabel);
-      setPlayerOneTrophies((s) => s + 1);
+      setWinner(playerOneName);
+      setPlayerOneTrophies(increase);
       setIsGameOver(true);
     } else if (playerOneHealth === 0) {
-      setWinner(playerTwoLabel);
-      setPlayerTwoTrophies((s) => s + 1);
+      setWinner(playerTwoName);
+      setPlayerTwoTrophies(increase);
       setIsGameOver(true);
     }
-  }, [playerOneHealth, playerTwoHealth]);
+  }, [playerOneHealth, playerTwoHealth, playerOneName, playerTwoName]);
+
+  const resetRound = useCallback(() => {
+    setPlayerOneChoice(null);
+    setPlayerTwoChoice(null);
+    setRound(increase);
+    if (!vsCPU) {
+      setMessage(`${playerOneName}'s turn`);
+      setTurn(1);
+    }
+    setInputDisabled(false);
+  }, [playerOneName, vsCPU]);
+
+  useEffect(() => {
+    if (playerOneChoice && playerTwoChoice) {
+      setInputDisabled(true);
+      if (beats(playerOneChoice.name, playerTwoChoice.name)) {
+        setPlayerTwoHealth(decrease);
+        setMessage(`${playerOneName} wins the round!`);
+      } else if (beats(playerTwoChoice.name, playerOneChoice.name)) {
+        setPlayerOneHealth(decrease);
+        setMessage(`${playerTwoName} wins the round!`);
+      } else {
+        setMessage(`It's a tie!`);
+      }
+      setTimeout(() => resetRound(), 1000);
+    }
+  }, [
+    playerOneChoice,
+    playerTwoChoice,
+    playerOneName,
+    playerTwoName,
+    round,
+    resetRound,
+  ]);
 
   const resetGame = () => {
-    setPlayerOneChoice(placeholderCard);
-    setPlayerTwoChoice(placeholderCard);
     setWinner(null);
     setIsGameOver(false);
     setPlayerOneHealth(MAX_HEALTH);
     setPlayerTwoHealth(MAX_HEALTH);
-    setMessage(DEFAULT_MESSAGE);
+    resetRound();
   };
 
   return (
     <div className="game">
       <div className="hud">
         <Status
-          contenderName={playerOneLabel}
+          contenderName={playerOneName}
           currentHealth={playerOneHealth}
           maxHealth={MAX_HEALTH}
           currentMedals={playerOneTrophies}
         />
         <Status
-          contenderName={playerTwoLabel}
+          contenderName={playerTwoName}
           currentHealth={playerTwoHealth}
           maxHealth={MAX_HEALTH}
           currentMedals={playerTwoTrophies}
@@ -140,11 +177,20 @@ const Game = ({ onMainMenuClick }) => {
 
       <Announcer message={message} />
 
-      <div className="card-group">
-        {cards.map((card) => (
-          <ClickableCard key={card.name} onClick={handleChoice} card={card} />
-        ))}
-      </div>
+      {turn === 1 && (
+        <CardPicker
+          onChoose={handlePlayerOneChoice}
+          choices={cards}
+          disabled={inputDisabled}
+        />
+      )}
+      {turn === 2 && (
+        <CardPicker
+          onChoose={handlePlayerTwoChoice}
+          choices={cards}
+          disabled={inputDisabled}
+        />
+      )}
 
       <Modal
         title="Rock Paper Scissors Lizard Spock"
