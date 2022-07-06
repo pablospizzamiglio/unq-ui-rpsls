@@ -9,10 +9,10 @@ const Status = ({ contenderName, currentHealth, maxHealth, currentMedals }) => {
         <div className="contender">{contenderName}</div>
       </div>
       <div className="status-item">
-        <Health current={currentHealth} max={maxHealth} />
+        <Health value={currentHealth} maxValue={maxHealth} />
       </div>
       <div className="status-item">
-        <Trophies current={currentMedals} />
+        <Trophies value={currentMedals} />
       </div>
     </div>
   );

@@ -10,13 +10,11 @@ const HealthUnit = ({ filled, width }) => {
   return <div className="health-unit">{unit}</div>;
 };
 
-const Health = ({ current, max }) => {
-  let healthUnits = Array(max)
+const Health = ({ value, maxValue }) => {
+  let healthUnits = Array(maxValue)
     .fill()
     .map((_, index) => {
-      return (
-        <HealthUnit key={index} filled={current >= index + 1} width={32} />
-      );
+      return <HealthUnit key={index} filled={value >= index + 1} width={32} />;
     });
   return <div className="health-bar">{healthUnits}</div>;
 };
