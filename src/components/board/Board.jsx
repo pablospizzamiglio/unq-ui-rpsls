@@ -11,10 +11,18 @@ const Board = ({ cardA, cardB }) => {
   return (
     <div className="board">
       <div className="board-item">
-        {cardA ? <Card card={cardA} /> : <Card card={placeholderCard} />}
+        {cardA && cardB ? (
+          <Card card={cardA} />
+        ) : (
+          <Card card={placeholderCard} />
+        )}
       </div>
       <div className="board-item">
-        {cardB ? <Card card={cardB} /> : <Card card={placeholderCard} />}
+        {cardA && cardB ? (
+          <Card card={cardB} />
+        ) : (
+          <Card card={placeholderCard} />
+        )}
       </div>
     </div>
   );
