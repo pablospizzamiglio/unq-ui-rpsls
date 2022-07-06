@@ -2,7 +2,7 @@ import "./menu.css";
 
 const Menu = ({ onOnePlayerClick, onTwoPlayersClick }) => {
   return (
-    <div className="menu">
+    <div className="menu container">
       <div className="menu-item">
         <h1>Rock Paper Scissors Lizard Spock</h1>
       </div>

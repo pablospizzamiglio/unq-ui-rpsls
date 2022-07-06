@@ -1,20 +1,4 @@
 .menu {
-  display: flex;
-  flex-direction: column;
-  justify-items: center;
-  gap: 1rem;
-}
-
-@media (min-width: 992px) {
-  .menu {
-    max-width: 960px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .menu {
-    max-width: 1140px;
-  }
 }
 
 .menu-item {

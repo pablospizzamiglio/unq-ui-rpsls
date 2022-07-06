@@ -164,7 +164,7 @@ const Game = ({
   };
 
   return (
-    <div className="game">
+    <div className="game container">
       <div className="hud">
         <Status
           contenderName={playerOneName}
