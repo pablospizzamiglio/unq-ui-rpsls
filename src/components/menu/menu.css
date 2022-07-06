@@ -1,3 +1,21 @@
+.menu {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: burlywood;
+  /* color: darkgoldenrod; */
+  padding: 0.5rem;
+}
+
+.menu h1 {
+  font-size: 4em;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
 .menu-item {
   display: flex;
   justify-content: center;
@@ -7,5 +25,7 @@
 .menu-button-group {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 1rem;
 }
