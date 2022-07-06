@@ -39,6 +39,19 @@
   max-width: 150px;
   border-radius: 0.3rem;
   transition: 0.4s;
+  pointer-events: all;
+}
+
+.card-button:disabled {
+  pointer-events: none;
+}
+
+.card-button:disabled img {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  filter: grayscale(100%);
 }
 
 .card-button:hover {
