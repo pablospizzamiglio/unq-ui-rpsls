@@ -18,7 +18,7 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  justify-items: center;
+  justify-content: center;
   gap: 1rem;
 }
 
@@ -36,6 +36,6 @@ body {
 
 @media (min-width: 1400px) {
   .container {
-    max-width: 1320px;
+    max-width: 100%;
   }
 }
