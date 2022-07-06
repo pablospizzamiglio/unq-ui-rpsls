@@ -53,6 +53,29 @@
   align-items: center;
 }
 
+.status-bar img {
+  width: 2rem;
+  aspect-ratio: 1 / 1;
+}
+
+@media (min-width: 992px) {
+  .status-bar img {
+    width: 2.25rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .status-bar img {
+    width: 2.5rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .status-bar img {
+    width: 2.75rem;
+  }
+}
+
 .trophy-bar {
   display: flex;
   flex-direction: row;
