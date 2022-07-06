@@ -54,7 +54,14 @@ const beats = (choiceA, choiceB) => {
   );
 };
 
-const WELCOME_MESSAGE = "Welcome to Rock Paper Scissors Lizard Spock!";
+const generateNextTurnMessage = (playerName) => `${playerName}'s turn`;
+const generateRoundWinnerMessage = (playerName) =>
+  `${playerName} wins the round!`;
+const generateMatchWinnerMessage = (playerName) => `${playerName} WINS`;
+
+const WELCOME = "Welcome to Rock Paper Scissors Lizard Spock!";
+const GAME_OVER = "Game Over";
+const TIE = "It's a tie!";
 const increase = (i) => i + 1;
 const decrease = (i) => (i > 0 ? i - 1 : 0);
 
@@ -85,7 +92,7 @@ const Game = ({
       const randomCard = nextCard();
       setPlayerTwoChoice(randomCard);
     } else {
-      setMessage(`${playerTwoName}'s turn.`);
+      setMessage(generateNextTurnMessage(playerTwoName));
       setTurn(2);
     }
   };
@@ -96,9 +103,9 @@ const Game = ({
 
   useEffect(() => {
     if (vsCPU) {
-      setMessage(WELCOME_MESSAGE);
+      setMessage(WELCOME);
     } else {
-      setMessage(`${playerOneName}'s turn.`);
+      setMessage(generateNextTurnMessage(playerOneName));
     }
   }, [vsCPU, playerOneName]);
 
@@ -119,7 +126,7 @@ const Game = ({
     setPlayerTwoChoice(null);
     setRound(increase);
     if (!vsCPU) {
-      setMessage(`${playerOneName}'s turn`);
+      setMessage(generateNextTurnMessage(playerOneName));
       setTurn(1);
     }
     setInputDisabled(false);
@@ -130,12 +137,12 @@ const Game = ({
       setInputDisabled(true);
       if (beats(playerOneChoice.name, playerTwoChoice.name)) {
         setPlayerTwoHealth(decrease);
-        setMessage(`${playerOneName} wins the round!`);
+        setMessage(generateRoundWinnerMessage(playerOneName));
       } else if (beats(playerTwoChoice.name, playerOneChoice.name)) {
         setPlayerOneHealth(decrease);
-        setMessage(`${playerTwoName} wins the round!`);
+        setMessage(generateRoundWinnerMessage(playerTwoName));
       } else {
-        setMessage(`It's a tie!`);
+        setMessage(TIE);
       }
       setTimeout(() => resetRound(), 1000);
     }
@@ -193,7 +200,7 @@ const Game = ({
       )}
 
       <Modal
-        title="Rock Paper Scissors Lizard Spock"
+        title={GAME_OVER}
         show={isGameOver}
         onConfirm={() => resetGame()}
         onClose={() => {
@@ -201,7 +208,9 @@ const Game = ({
           onMainMenuClick();
         }}
       >
-        <p style={{ textTransform: "uppercase" }}>{`${winner} WINS!`}</p>
+        <p style={{ textTransform: "uppercase" }}>
+          {generateMatchWinnerMessage(winner)}
+        </p>
       </Modal>
     </div>
   );
