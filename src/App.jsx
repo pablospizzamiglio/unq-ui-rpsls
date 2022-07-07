@@ -1,4 +1,4 @@
-import Game from "components/game/Game";
+import Game from "components/Game/Game";
 import GameOverMenu from "components/GameOverMenu/GameOverMenu";
 import MainMenu from "components/MainMenu/MainMenu";
 import { useState } from "react";
