@@ -1,5 +1,5 @@
-import EmptyHeart from "components/icons/EmptyHeart";
-import FullHeart from "components/icons/FullHeart";
+import EmptyHeart from "components/EmptyHeart/EmptyHeart";
+import FullHeart from "components/FullHeart/FullHeart";
 import "./Health.css";
 
 const HealthUnit = ({ filled }) => {
