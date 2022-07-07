@@ -1,0 +1,59 @@
+.card-button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  max-width: 150px;
+  border-radius: 0.3rem;
+  transition: 0.4s;
+  pointer-events: all;
+}
+
+.card-button:disabled {
+  pointer-events: none;
+}
+
+.card-button .card {
+  border: none;
+}
+
+.card-button:disabled img {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+@media (min-width: 576px) {
+  .card-button {
+    max-width: 150px;
+  }
+}
+
+@media (min-width: 768px) {
+  .card-button {
+    max-width: 200px;
+  }
+}
+
+@media (min-width: 992px) {
+  .card-button {
+    max-width: 250px;
+  }
+}
+
+/* @media (min-width: 1200px) {
+  .card-button {
+    max-width: 300px;
+  }
+} */
+
+/* @media (min-width: 1400px) {
+  .card-button {
+    max-width: 350px;
+  }
+} */

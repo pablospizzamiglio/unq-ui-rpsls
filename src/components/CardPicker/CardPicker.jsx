@@ -1,4 +1,4 @@
-import CardButton from "components/buttons/CardButton";
+import CardButton from "components/CardButton/CardButton";
 import "./cardpicker.css";
 
 const CardPicker = ({ onChoose, choices, disabled }) => {

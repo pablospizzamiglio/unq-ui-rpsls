@@ -1,6 +1,6 @@
 import AnimatedButton from "components/AnimatedButton/AnimatedButton";
 import Card from "components/Card/Card";
-import "./button.css";
+import "./CardButton.css";
 
 const CardButton = ({ onClick, card, disabled }) => {
   const handleOnClick = () => {
