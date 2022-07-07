@@ -1,5 +1,4 @@
-import Menu from "./Menu";
-import "./menu.css";
+import Menu from "components/menu/Menu";
 
 const MainMenu = ({ onOnePlayerClick, onTwoPlayersClick }) => {
   return (
