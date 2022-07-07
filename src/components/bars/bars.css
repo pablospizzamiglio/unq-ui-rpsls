@@ -76,24 +76,3 @@
     width: 2.75rem;
   }
 }
-
-.trophy-bar {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  gap: 0.2rem;
-}
-
-.status-bar:last-child .trophy-bar {
-  flex-direction: row-reverse;
-}
-
-.trophy-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.trophy-count {
-  font-size: 1.5rem;
-}

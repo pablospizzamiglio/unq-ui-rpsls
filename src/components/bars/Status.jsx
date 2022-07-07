@@ -1,6 +1,6 @@
+import Trophies from "components/Trophies/Trophies";
 import "./bars.css";
 import Health from "./Health";
-import Trophies from "./Trophies";
 
 const Status = ({ playerName, health, maxHealth, trophies }) => {
   return (

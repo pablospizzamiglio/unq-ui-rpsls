@@ -1,5 +1,5 @@
 import Donut from "components/icons/Donut";
-import "./bars.css";
+import "./Trophies.css";
 
 const Trophies = ({ value }) => {
   return (
