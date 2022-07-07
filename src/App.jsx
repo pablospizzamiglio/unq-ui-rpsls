@@ -1,10 +1,9 @@
 import Game from "components/Game/Game";
 import GameOverMenu from "components/GameOverMenu/GameOverMenu";
 import MainMenu from "components/MainMenu/MainMenu";
+import { increase } from "helpers/count";
 import { useState } from "react";
 import "./App.css";
-
-const increase = (i) => i + 1;
 
 function App() {
   const MAIN_MENU = "MAIN_MENU";

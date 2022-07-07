@@ -2,6 +2,7 @@ import Announcer from "components/Announcer/Announcer";
 import Board from "components/Board/Board";
 import CardPicker from "components/CardPicker/CardPicker";
 import Status from "components/Status/Status";
+import { decrease, increase } from "helpers/count";
 import { useCallback, useEffect, useState } from "react";
 import "./Game.css";
 
@@ -55,9 +56,6 @@ const DELAY_MS = 1500;
 const generateNextTurnMessage = (playerName) => `${playerName} ${CHOOSE}`;
 const generateRoundWinnerMessage = (playerName) =>
   `${playerName} wins the round!`;
-
-const increase = (i) => i + 1;
-const decrease = (i) => (i > 0 ? i - 1 : 0);
 
 const Game = ({
   onGameOver,
