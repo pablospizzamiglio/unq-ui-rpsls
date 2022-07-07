@@ -1,4 +1,4 @@
-import Donut from "components/icons/Donut";
+import Donut from "components/Donut/Donut";
 import "./Trophies.css";
 
 const Trophies = ({ value }) => {
