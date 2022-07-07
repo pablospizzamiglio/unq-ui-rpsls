@@ -1,4 +1,4 @@
-import Announcer from "components/announcer/Announcer";
+import Announcer from "components/Announcer/Announcer";
 import Status from "components/bars/Status";
 import Board from "components/board/Board";
 import CardPicker from "components/picker/CardPicker";
