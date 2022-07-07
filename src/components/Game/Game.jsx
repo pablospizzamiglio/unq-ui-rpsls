@@ -2,60 +2,18 @@ import Announcer from "components/Announcer/Announcer";
 import Board from "components/Board/Board";
 import CardPicker from "components/CardPicker/CardPicker";
 import Status from "components/Status/Status";
-import { decrease, increase } from "helpers/count";
+import { nextRandomElement } from "helpers/arrays";
+import { cards, CHOOSE, DELAY_MS, TIE } from "helpers/constants";
+import { beats } from "helpers/game";
+import { decrease, increase } from "helpers/numbers";
+import {
+  generateNextTurnMessage,
+  generateRoundWinnerMessage,
+} from "helpers/text";
 import { useCallback, useEffect, useState } from "react";
 import "./Game.css";
 
-const cards = [
-  {
-    name: "rock",
-    src: "/images/rock.png",
-  },
-  {
-    name: "paper",
-    src: "/images/paper.png",
-  },
-  {
-    name: "scissors",
-    src: "/images/scissors.png",
-  },
-  {
-    name: "lizard",
-    src: "/images/lizard.png",
-  },
-  {
-    name: "spock",
-    src: "/images/spock.png",
-  },
-];
-
-const nextRandomElement = (elements) =>
-  elements[Math.floor(Math.random() * elements.length)];
-
 const nextCard = () => nextRandomElement(cards);
-
-const beats = (choiceA, choiceB) => {
-  return (
-    (choiceA === "scissors" && choiceB === "paper") ||
-    (choiceA === "paper" && choiceB === "rock") ||
-    (choiceA === "rock" && choiceB === "lizard") ||
-    (choiceA === "lizard" && choiceB === "spock") ||
-    (choiceA === "spock" && choiceB === "scissors") ||
-    (choiceA === "scissors" && choiceB === "lizard") ||
-    (choiceA === "lizard" && choiceB === "paper") ||
-    (choiceA === "paper" && choiceB === "spock") ||
-    (choiceA === "spock" && choiceB === "rock") ||
-    (choiceA === "rock" && choiceB === "scissors")
-  );
-};
-
-const CHOOSE = "choose a card";
-const TIE = "it's a tie!";
-const DELAY_MS = 1500;
-
-const generateNextTurnMessage = (playerName) => `${playerName} ${CHOOSE}`;
-const generateRoundWinnerMessage = (playerName) =>
-  `${playerName} wins the round!`;
 
 const Game = ({
   onGameOver,

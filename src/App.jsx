@@ -1,18 +1,20 @@
 import Game from "components/Game/Game";
 import GameOverMenu from "components/GameOverMenu/GameOverMenu";
 import MainMenu from "components/MainMenu/MainMenu";
-import { increase } from "helpers/count";
+import {
+  CPU,
+  GAME_OVER,
+  MAIN_MENU,
+  ONE_PLAYER,
+  PLAYER_ONE,
+  PLAYER_TWO,
+  TWO_PLAYERS,
+} from "helpers/constants";
+import { increase } from "helpers/numbers";
 import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const MAIN_MENU = "MAIN_MENU";
-  const ONE_PLAYER = "ONE_PLAYER";
-  const TWO_PLAYERS = "TWO_PLAYERS";
-  const GAME_OVER = "GAME_OVER";
-  const PLAYER_ONE = "Player 1";
-  const PLAYER_TWO = "Player 2";
-  const CPU = "CPU";
   const [screen, setScreen] = useState(MAIN_MENU);
   const [lastPlayedMode, setLastPlayedMode] = useState(null);
   const [winner, setWinner] = useState(null);
