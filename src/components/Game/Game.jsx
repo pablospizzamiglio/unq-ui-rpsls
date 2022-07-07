@@ -8,7 +8,7 @@ import Paper from "../images/paper.png";
 import Rock from "../images/rock.png";
 import Scissors from "../images/scissors.png";
 import Spock from "../images/spock.png";
-import "./game.css";
+import "./Game.css";
 
 const cards = [
   {

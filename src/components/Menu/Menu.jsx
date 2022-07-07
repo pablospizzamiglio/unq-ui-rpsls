@@ -1,5 +1,5 @@
 import MenuButton from "components/MenuButton/MenuButton";
-import "./menu.css";
+import "./Menu.css";
 
 const Menu = ({
   onFirstButtonClick,

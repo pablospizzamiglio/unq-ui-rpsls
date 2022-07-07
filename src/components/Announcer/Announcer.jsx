@@ -1,4 +1,4 @@
-import "./announcer.css";
+import "./Announcer.css";
 
 import { useEffect, useState } from "react";
 
