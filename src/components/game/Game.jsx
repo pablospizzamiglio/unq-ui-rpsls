@@ -108,9 +108,11 @@ const Game = ({
 
   useEffect(() => {
     if (playerTwoHealth === 0) {
-      setTimeout(() => onGameOver(playerOneName), DELAY_MS);
+      const timer = setTimeout(() => onGameOver(playerOneName), DELAY_MS);
+      return () => clearTimeout(timer);
     } else if (playerOneHealth === 0) {
-      setTimeout(() => onGameOver(playerTwoName), DELAY_MS);
+      const timer = setTimeout(() => onGameOver(playerTwoName), DELAY_MS);
+      return () => clearTimeout(timer);
     }
   }, [
     playerOneHealth,
@@ -145,7 +147,8 @@ const Game = ({
       } else {
         setMessage(TIE);
       }
-      setTimeout(() => resetRound(), DELAY_MS);
+      const timer = setTimeout(() => resetRound(), DELAY_MS);
+      return () => clearTimeout(timer);
     }
   }, [
     playerOneChoice,
