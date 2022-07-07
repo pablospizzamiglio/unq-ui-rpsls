@@ -48,14 +48,14 @@ const beats = (choiceA, choiceB) => {
   );
 };
 
-const generateNextTurnMessage = (playerName) => `${playerName}'s turn`;
+const CHOOSE = "choose a card";
+const TIE = "it's a tie!";
+const DELAY_MS = 1500;
+
+const generateNextTurnMessage = (playerName) => `${playerName} ${CHOOSE}`;
 const generateRoundWinnerMessage = (playerName) =>
   `${playerName} wins the round!`;
 
-const WELCOME = "Welcome to Rock Paper Scissors Lizard Spock!";
-const CHOOSE = "Choose a card";
-const TIE = "It's a tie!";
-const DELAY_MS = 1500;
 const increase = (i) => i + 1;
 const decrease = (i) => (i > 0 ? i - 1 : 0);
 
@@ -95,7 +95,7 @@ const Game = ({
 
   useEffect(() => {
     if (vsCPU) {
-      setMessage(WELCOME);
+      setMessage(CHOOSE);
     } else {
       setMessage(generateNextTurnMessage(playerOneName));
     }

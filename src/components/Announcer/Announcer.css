@@ -19,6 +19,7 @@
 
 .announcer-message {
   font-size: 1.2rem;
+  text-transform: capitalize;
 }
 
 @media (min-width: 992px) {
