@@ -1,4 +1,4 @@
-import MenuButton from "components/buttons/MenuButton";
+import MenuButton from "components/MenuButton/MenuButton";
 import "./menu.css";
 
 const Menu = ({
