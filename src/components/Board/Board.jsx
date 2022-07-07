@@ -1,10 +1,9 @@
 import Card from "components/Card/Card";
-import Placeholder from "../images/mrx.png";
 import "./Board.css";
 
 const placeholderCard = {
   name: "placeholder",
-  src: Placeholder,
+  src: "/images/mrx.png",
 };
 
 const Board = ({ cardA, cardB }) => {

@@ -1,7 +1,5 @@
-import Doughnut from "./images/doughnut_1f369.png";
-
 const Donut = () => {
-  return <img src={Doughnut} alt="Donut" />;
+  return <img src={"/images/doughnut.png"} alt="Donut" />;
 };
 
 export default Donut;

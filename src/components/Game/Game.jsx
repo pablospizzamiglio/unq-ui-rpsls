@@ -3,33 +3,28 @@ import Board from "components/Board/Board";
 import CardPicker from "components/CardPicker/CardPicker";
 import Status from "components/Status/Status";
 import { useCallback, useEffect, useState } from "react";
-import Lizard from "../images/lizard.png";
-import Paper from "../images/paper.png";
-import Rock from "../images/rock.png";
-import Scissors from "../images/scissors.png";
-import Spock from "../images/spock.png";
 import "./Game.css";
 
 const cards = [
   {
     name: "rock",
-    src: Rock,
+    src: "/images/rock.png",
   },
   {
     name: "paper",
-    src: Paper,
+    src: "/images/paper.png",
   },
   {
     name: "scissors",
-    src: Scissors,
+    src: "/images/scissors.png",
   },
   {
     name: "lizard",
-    src: Lizard,
+    src: "/images/lizard.png",
   },
   {
     name: "spock",
-    src: Spock,
+    src: "/images/spock.png",
   },
 ];
 
