@@ -1,5 +1,5 @@
 import Game from "components/game/Game";
-import GameOverMenu from "components/menu/GameOverMenu";
+import GameOverMenu from "components/GameOverMenu/GameOverMenu";
 import MainMenu from "components/menu/MainMenu";
 import { useState } from "react";
 import "./App.css";
