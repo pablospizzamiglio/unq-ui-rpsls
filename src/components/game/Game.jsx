@@ -1,7 +1,6 @@
 import Announcer from "components/announcer/Announcer";
 import Status from "components/bars/Status";
 import Board from "components/board/Board";
-import Modal from "components/modal/Modal";
 import CardPicker from "components/picker/CardPicker";
 import { useCallback, useEffect, useState } from "react";
 import Lizard from "../images/lizard.png";
@@ -57,20 +56,14 @@ const beats = (choiceA, choiceB) => {
 const generateNextTurnMessage = (playerName) => `${playerName}'s turn`;
 const generateRoundWinnerMessage = (playerName) =>
   `${playerName} wins the round!`;
-const generateMatchWinnerMessage = (playerName) => `${playerName} WINS`;
+const generateMatchWinnerMessage = (playerName) => `${playerName} wins`;
 
 const WELCOME = "Welcome to Rock Paper Scissors Lizard Spock!";
-const GAME_OVER = "Game Over";
 const TIE = "It's a tie!";
 const increase = (i) => i + 1;
 const decrease = (i) => (i > 0 ? i - 1 : 0);
 
-const Game = ({
-  onMainMenuClick,
-  playerOneName,
-  playerTwoName,
-  vsCPU = false,
-}) => {
+const Game = ({ onGameOver, playerOneName, playerTwoName, vsCPU = false }) => {
   const MAX_HEALTH = 5;
   const [playerOneChoice, setPlayerOneChoice] = useState(null);
   const [playerOneHealth, setPlayerOneHealth] = useState(MAX_HEALTH);
@@ -79,8 +72,6 @@ const Game = ({
   const [playerTwoHealth, setPlayerTwoHealth] = useState(MAX_HEALTH);
   const [playerTwoTrophies, setPlayerTwoTrophies] = useState(0);
   const [message, setMessage] = useState(null);
-  const [winner, setWinner] = useState(null);
-  const [isGameOver, setIsGameOver] = useState(false);
   const [turn, setTurn] = useState(1);
   const [round, setRound] = useState(0);
   const [inputDisabled, setInputDisabled] = useState(false);
@@ -111,15 +102,19 @@ const Game = ({
 
   useEffect(() => {
     if (playerTwoHealth === 0) {
-      setWinner(playerOneName);
       setPlayerOneTrophies(increase);
-      setIsGameOver(true);
+      onGameOver(generateMatchWinnerMessage(playerOneName));
     } else if (playerOneHealth === 0) {
-      setWinner(playerTwoName);
       setPlayerTwoTrophies(increase);
-      setIsGameOver(true);
+      onGameOver(generateMatchWinnerMessage(playerTwoName));
     }
-  }, [playerOneHealth, playerTwoHealth, playerOneName, playerTwoName]);
+  }, [
+    playerOneHealth,
+    playerTwoHealth,
+    playerOneName,
+    playerTwoName,
+    onGameOver,
+  ]);
 
   const resetRound = useCallback(() => {
     setPlayerOneChoice(null);
@@ -144,7 +139,7 @@ const Game = ({
       } else {
         setMessage(TIE);
       }
-      setTimeout(() => resetRound(), 2000);
+      setTimeout(() => resetRound(), 1500);
     }
   }, [
     playerOneChoice,
@@ -154,14 +149,6 @@ const Game = ({
     round,
     resetRound,
   ]);
-
-  const resetGame = () => {
-    setWinner(null);
-    setIsGameOver(false);
-    setPlayerOneHealth(MAX_HEALTH);
-    setPlayerTwoHealth(MAX_HEALTH);
-    resetRound();
-  };
 
   return (
     <div className="game container">
@@ -198,20 +185,6 @@ const Game = ({
           disabled={inputDisabled}
         />
       )}
-
-      <Modal
-        title={GAME_OVER}
-        show={isGameOver}
-        onConfirm={() => resetGame()}
-        onClose={() => {
-          resetGame();
-          onMainMenuClick();
-        }}
-      >
-        <p style={{ textTransform: "uppercase" }}>
-          {generateMatchWinnerMessage(winner)}
-        </p>
-      </Modal>
     </div>
   );
 };
