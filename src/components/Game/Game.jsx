@@ -1,7 +1,7 @@
 import Announcer from "components/Announcer/Announcer";
-import Status from "components/bars/Status";
 import Board from "components/Board/Board";
 import CardPicker from "components/CardPicker/CardPicker";
+import Status from "components/Status/Status";
 import { useCallback, useEffect, useState } from "react";
 import Lizard from "../images/lizard.png";
 import Paper from "../images/paper.png";
