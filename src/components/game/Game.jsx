@@ -144,7 +144,7 @@ const Game = ({
       } else {
         setMessage(TIE);
       }
-      setTimeout(() => resetRound(), 1000);
+      setTimeout(() => resetRound(), 2000);
     }
   }, [
     playerOneChoice,
