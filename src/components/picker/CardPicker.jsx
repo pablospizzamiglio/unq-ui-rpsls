@@ -1,4 +1,4 @@
-import ClickableCard from "components/cards/ClickableCard";
+import CardButton from "components/buttons/CardButton";
 import "./cardpicker.css";
 
 const CardPicker = ({ onChoose, choices, disabled }) => {
@@ -9,7 +9,7 @@ const CardPicker = ({ onChoose, choices, disabled }) => {
   return (
     <div className="card-group">
       {choices.map((card) => (
-        <ClickableCard
+        <CardButton
           key={card.name}
           onClick={handleChoice}
           card={card}

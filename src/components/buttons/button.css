@@ -1,0 +1,65 @@
+.button {
+  border: 1px solid gray;
+  border-radius: 0.3rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2), 2px 2px 8px rgba(0, 0, 0, 0.2);
+  transition: 0.4s;
+}
+
+.button:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2), 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.menu-button {
+  min-width: 10rem;
+  font-size: 1.5rem;
+  width: 300px;
+  padding: 1rem;
+}
+
+.card-button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  max-width: 150px;
+  border-radius: 0.3rem;
+  transition: 0.4s;
+  pointer-events: all;
+}
+
+.card-button:disabled {
+  pointer-events: none;
+}
+
+.card-button .card {
+  border: none;
+}
+
+.card-button:disabled img {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+.card-button:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2), 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 576px) {
+  .card-button {
+    max-width: 150px;
+  }
+}
+
+@media (min-width: 768px) {
+  .card-button {
+    max-width: 200px;
+  }
+}

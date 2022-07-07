@@ -1,10 +1,11 @@
-import "./menubutton.css";
+import AnimatedButton from "./AnimatedButton";
+import "./button.css";
 
 const MenuButton = ({ onClick, children }) => {
   return (
-    <button className="menu-button" onClick={onClick}>
+    <AnimatedButton className={"menu-button"} onClick={onClick}>
       {children}
-    </button>
+    </AnimatedButton>
   );
 };
 
