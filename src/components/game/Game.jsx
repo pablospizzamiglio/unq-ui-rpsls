@@ -167,12 +167,14 @@ const Game = ({ onGameOver, playerOneName, playerTwoName, vsCPU = false }) => {
           contenderName={playerOneName}
           currentHealth={playerOneHealth}
           maxHealth={MAX_HEALTH}
+          // TODO: rename to currentTrophies
           currentMedals={playerOneTrophies}
         />
         <Status
           contenderName={playerTwoName}
           currentHealth={playerTwoHealth}
           maxHealth={MAX_HEALTH}
+          // TODO: rename to currentTrophies
           currentMedals={playerTwoTrophies}
         />
       </div>

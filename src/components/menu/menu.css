@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: burlywood;
+  background-color: var(--color-lightyellow);
   padding: 0.5rem;
 }
 
