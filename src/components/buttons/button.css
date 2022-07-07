@@ -55,3 +55,21 @@
     max-width: 200px;
   }
 }
+
+@media (min-width: 992px) {
+  .card-button {
+    max-width: 250px;
+  }
+}
+
+/* @media (min-width: 1200px) {
+  .card-button {
+    max-width: 300px;
+  }
+} */
+
+/* @media (min-width: 1400px) {
+  .card-button {
+    max-width: 350px;
+  }
+} */
