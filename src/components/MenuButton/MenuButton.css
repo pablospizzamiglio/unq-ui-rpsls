@@ -5,3 +5,7 @@
   padding: 1rem;
   background-color: var(--color-lightgreen);
 }
+
+.menu-button:hover {
+  background-color: var(--color-green);
+}
