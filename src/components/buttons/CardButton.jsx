@@ -1,5 +1,5 @@
 import AnimatedButton from "components/buttons/AnimatedButton";
-import Card from "components/cards/Card";
+import Card from "components/card/Card";
 import "./button.css";
 
 const CardButton = ({ onClick, card, disabled }) => {

@@ -1,4 +1,4 @@
-import Card from "components/cards/Card";
+import Card from "components/card/Card";
 import Placeholder from "../images/mrx.png";
 import "./board.css";
 
