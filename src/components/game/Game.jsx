@@ -164,18 +164,18 @@ const Game = ({ onGameOver, playerOneName, playerTwoName, vsCPU = false }) => {
     <div className="game container">
       <div className="hud">
         <Status
-          contenderName={playerOneName}
-          currentHealth={playerOneHealth}
+          playerName={playerOneName}
+          health={playerOneHealth}
           maxHealth={MAX_HEALTH}
           // TODO: rename to currentTrophies
-          currentMedals={playerOneTrophies}
+          trophies={playerOneTrophies}
         />
         <Status
-          contenderName={playerTwoName}
-          currentHealth={playerTwoHealth}
+          playerName={playerTwoName}
+          health={playerTwoHealth}
           maxHealth={MAX_HEALTH}
           // TODO: rename to currentTrophies
-          currentMedals={playerTwoTrophies}
+          trophies={playerTwoTrophies}
         />
       </div>
 
