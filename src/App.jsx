@@ -4,6 +4,8 @@ import Menu from "components/menu/Menu";
 import { useState } from "react";
 import "./App.css";
 
+const increase = (i) => i + 1;
+
 function App() {
   const MAIN_MENU = "MAIN_MENU";
   const ONE_PLAYER = "ONE_PLAYER";
@@ -14,10 +16,26 @@ function App() {
   const CPU = "CPU";
   const [screen, setScreen] = useState(MAIN_MENU);
   const [lastPlayedMode, setLastPlayedMode] = useState(null);
-  const [gameOverMessage, setGameOverMessage] = useState(null);
+  const [winner, setWinner] = useState(null);
+  const [playerOneTrophies, setPlayerOneTrophies] = useState(0);
+  const [playerTwoTrophies, setPlayerTwoTrophies] = useState(0);
+  const [cpuTrophies, setCpuTrophies] = useState(0);
 
-  const handleGameOver = (message) => {
-    setGameOverMessage(message);
+  const handleGameOver = (playerName) => {
+    switch (playerName) {
+      case PLAYER_ONE:
+        setPlayerOneTrophies(increase);
+        break;
+      case PLAYER_TWO:
+        setPlayerTwoTrophies(increase);
+        break;
+      case CPU:
+        setCpuTrophies(increase);
+        break;
+      default:
+        break;
+    }
+    setWinner(playerName);
     setScreen(GAME_OVER);
   };
 
@@ -39,7 +57,9 @@ function App() {
         <Game
           onGameOver={handleGameOver}
           playerOneName={PLAYER_ONE}
+          playerOneTrophies={playerOneTrophies}
           playerTwoName={CPU}
+          playerTwoTrophies={cpuTrophies}
           vsCPU
         />
       )}
@@ -47,17 +67,19 @@ function App() {
         <Game
           onGameOver={handleGameOver}
           playerOneName={PLAYER_ONE}
+          playerOneTrophies={playerOneTrophies}
           playerTwoName={PLAYER_TWO}
+          playerTwoTrophies={playerTwoTrophies}
         />
       )}
       {screen === GAME_OVER && (
         <GameOverMenu
-          message={gameOverMessage}
           onPlayAgainClick={() => setScreen(lastPlayedMode)}
           onMainMenuClick={() => {
             setScreen(MAIN_MENU);
             setLastPlayedMode(null);
           }}
+          playerName={winner}
         />
       )}
     </div>
