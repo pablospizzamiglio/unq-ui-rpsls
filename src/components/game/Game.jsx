@@ -61,6 +61,7 @@ const generateMatchWinnerMessage = (playerName) => `${playerName} wins`;
 const WELCOME = "Welcome to Rock Paper Scissors Lizard Spock!";
 const CHOOSE = "Choose a card";
 const TIE = "It's a tie!";
+const DELAY_MS = 1500;
 const increase = (i) => i + 1;
 const decrease = (i) => (i > 0 ? i - 1 : 0);
 
@@ -106,13 +107,13 @@ const Game = ({ onGameOver, playerOneName, playerTwoName, vsCPU = false }) => {
       setPlayerOneTrophies(increase);
       setTimeout(
         () => onGameOver(generateMatchWinnerMessage(playerOneName)),
-        1500
+        DELAY_MS
       );
     } else if (playerOneHealth === 0) {
       setPlayerTwoTrophies(increase);
       setTimeout(
         () => onGameOver(generateMatchWinnerMessage(playerTwoName)),
-        1500
+        DELAY_MS
       );
     }
   }, [
@@ -148,7 +149,7 @@ const Game = ({ onGameOver, playerOneName, playerTwoName, vsCPU = false }) => {
       } else {
         setMessage(TIE);
       }
-      setTimeout(() => resetRound(), 1500);
+      setTimeout(() => resetRound(), DELAY_MS);
     }
   }, [
     playerOneChoice,
