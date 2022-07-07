@@ -1,6 +1,6 @@
 import EmptyHeart from "components/icons/EmptyHeart";
 import FullHeart from "components/icons/FullHeart";
-import "./bars.css";
+import "./Health.css";
 
 const HealthUnit = ({ filled }) => {
   let unit = <EmptyHeart />;

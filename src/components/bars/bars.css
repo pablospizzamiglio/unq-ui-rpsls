@@ -37,21 +37,8 @@
   }
 }
 
-.health-bar {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  gap: 0.2rem;
-}
-
 .status-bar:last-child .health-bar {
   flex-direction: row-reverse;
-}
-
-.health-unit {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .status-bar img {
