@@ -1,7 +1,7 @@
 import MenuButton from "components/buttons/MenuButton";
 import "./menu.css";
 
-const Menu = ({ onOnePlayerClick, onTwoPlayersClick }) => {
+const MainMenu = ({ onOnePlayerClick, onTwoPlayersClick }) => {
   return (
     <section className="menu">
       <div className="menu-inner">
@@ -15,4 +15,4 @@ const Menu = ({ onOnePlayerClick, onTwoPlayersClick }) => {
   );
 };
 
-export default Menu;
+export default MainMenu;

@@ -1,6 +1,6 @@
 import Game from "components/game/Game";
 import GameOverMenu from "components/menu/GameOverMenu";
-import Menu from "components/menu/Menu";
+import MainMenu from "components/menu/MainMenu";
 import { useState } from "react";
 import "./App.css";
 
@@ -42,7 +42,7 @@ function App() {
   return (
     <div className="App">
       {screen === MAIN_MENU && (
-        <Menu
+        <MainMenu
           onOnePlayerClick={() => {
             setScreen(ONE_PLAYER);
             setLastPlayedMode(ONE_PLAYER);
