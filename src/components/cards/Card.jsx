@@ -2,7 +2,7 @@ import "./card.css";
 
 const Card = ({ card }) => {
   return (
-    <div className="card">
+    <div className="card border">
       <img src={card.src} alt={card.name} />
     </div>
   );

@@ -36,7 +36,7 @@ const Announcer = ({ message }) => {
   // const typedMessage = useTypedMessage(message);
 
   return (
-    <div className="announcer">
+    <div className="announcer border">
       <div className="announcer-item">
         <p className="announcer-message">{message}</p>
       </div>

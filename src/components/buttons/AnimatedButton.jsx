@@ -3,7 +3,7 @@ import "./button.css";
 const AnimatedButton = ({ className, onClick, disabled = false, children }) => {
   return (
     <button
-      className={`button ${className}`}
+      className={`button border ${className}`}
       onClick={onClick}
       disabled={disabled}
     >
