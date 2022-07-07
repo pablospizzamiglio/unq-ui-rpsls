@@ -1,4 +1,4 @@
-import AnimatedButton from "components/buttons/AnimatedButton";
+import AnimatedButton from "components/AnimatedButton/AnimatedButton";
 import Card from "components/Card/Card";
 import "./button.css";
 

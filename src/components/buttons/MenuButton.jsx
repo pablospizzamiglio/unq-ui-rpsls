@@ -1,4 +1,4 @@
-import AnimatedButton from "./AnimatedButton";
+import AnimatedButton from "../AnimatedButton/AnimatedButton";
 import "./button.css";
 
 const MenuButton = ({ onClick, children }) => {

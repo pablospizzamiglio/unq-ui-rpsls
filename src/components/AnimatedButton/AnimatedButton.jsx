@@ -1,9 +1,9 @@
-import "./button.css";
+import "./AnimatedButton.css";
 
 const AnimatedButton = ({ className, onClick, disabled = false, children }) => {
   return (
     <button
-      className={`button border ${className}`}
+      className={`animated-button border ${className}`}
       onClick={onClick}
       disabled={disabled}
     >
