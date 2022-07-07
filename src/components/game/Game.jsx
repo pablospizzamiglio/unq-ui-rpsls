@@ -59,6 +59,7 @@ const generateRoundWinnerMessage = (playerName) =>
 const generateMatchWinnerMessage = (playerName) => `${playerName} wins`;
 
 const WELCOME = "Welcome to Rock Paper Scissors Lizard Spock!";
+const CHOOSE = "Choose a card";
 const TIE = "It's a tie!";
 const increase = (i) => i + 1;
 const decrease = (i) => (i > 0 ? i - 1 : 0);
@@ -71,7 +72,7 @@ const Game = ({ onGameOver, playerOneName, playerTwoName, vsCPU = false }) => {
   const [playerTwoChoice, setPlayerTwoChoice] = useState(null);
   const [playerTwoHealth, setPlayerTwoHealth] = useState(MAX_HEALTH);
   const [playerTwoTrophies, setPlayerTwoTrophies] = useState(0);
-  const [message, setMessage] = useState(null);
+  const [message, setMessage] = useState("");
   const [turn, setTurn] = useState(1);
   const [round, setRound] = useState(0);
   const [inputDisabled, setInputDisabled] = useState(false);
@@ -103,10 +104,16 @@ const Game = ({ onGameOver, playerOneName, playerTwoName, vsCPU = false }) => {
   useEffect(() => {
     if (playerTwoHealth === 0) {
       setPlayerOneTrophies(increase);
-      onGameOver(generateMatchWinnerMessage(playerOneName));
+      setTimeout(
+        () => onGameOver(generateMatchWinnerMessage(playerOneName)),
+        1500
+      );
     } else if (playerOneHealth === 0) {
       setPlayerTwoTrophies(increase);
-      onGameOver(generateMatchWinnerMessage(playerTwoName));
+      setTimeout(
+        () => onGameOver(generateMatchWinnerMessage(playerTwoName)),
+        1500
+      );
     }
   }, [
     playerOneHealth,
@@ -120,7 +127,9 @@ const Game = ({ onGameOver, playerOneName, playerTwoName, vsCPU = false }) => {
     setPlayerOneChoice(null);
     setPlayerTwoChoice(null);
     setRound(increase);
-    if (!vsCPU) {
+    if (vsCPU) {
+      setMessage(CHOOSE);
+    } else {
       setMessage(generateNextTurnMessage(playerOneName));
       setTurn(1);
     }
