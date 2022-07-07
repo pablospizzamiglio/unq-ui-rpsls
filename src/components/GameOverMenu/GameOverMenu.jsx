@@ -1,5 +1,5 @@
 import Donut from "components/icons/Donut";
-import Menu from "components/menu/Menu";
+import Menu from "components/Menu/Menu";
 
 const GameOverMenu = ({ onPlayAgainClick, onMainMenuClick, playerName }) => {
   return (
