@@ -56,7 +56,6 @@ const beats = (choiceA, choiceB) => {
 const generateNextTurnMessage = (playerName) => `${playerName}'s turn`;
 const generateRoundWinnerMessage = (playerName) =>
   `${playerName} wins the round!`;
-const generateMatchWinnerMessage = (playerName) => `${playerName} wins`;
 
 const WELCOME = "Welcome to Rock Paper Scissors Lizard Spock!";
 const CHOOSE = "Choose a card";
@@ -65,14 +64,19 @@ const DELAY_MS = 1500;
 const increase = (i) => i + 1;
 const decrease = (i) => (i > 0 ? i - 1 : 0);
 
-const Game = ({ onGameOver, playerOneName, playerTwoName, vsCPU = false }) => {
+const Game = ({
+  onGameOver,
+  playerOneName,
+  playerOneTrophies,
+  playerTwoName,
+  playerTwoTrophies,
+  vsCPU = false,
+}) => {
   const MAX_HEALTH = 5;
   const [playerOneChoice, setPlayerOneChoice] = useState(null);
   const [playerOneHealth, setPlayerOneHealth] = useState(MAX_HEALTH);
-  const [playerOneTrophies, setPlayerOneTrophies] = useState(0);
   const [playerTwoChoice, setPlayerTwoChoice] = useState(null);
   const [playerTwoHealth, setPlayerTwoHealth] = useState(MAX_HEALTH);
-  const [playerTwoTrophies, setPlayerTwoTrophies] = useState(0);
   const [message, setMessage] = useState("");
   const [turn, setTurn] = useState(1);
   const [round, setRound] = useState(0);
@@ -104,17 +108,9 @@ const Game = ({ onGameOver, playerOneName, playerTwoName, vsCPU = false }) => {
 
   useEffect(() => {
     if (playerTwoHealth === 0) {
-      setPlayerOneTrophies(increase);
-      setTimeout(
-        () => onGameOver(generateMatchWinnerMessage(playerOneName)),
-        DELAY_MS
-      );
+      setTimeout(() => onGameOver(playerOneName), DELAY_MS);
     } else if (playerOneHealth === 0) {
-      setPlayerTwoTrophies(increase);
-      setTimeout(
-        () => onGameOver(generateMatchWinnerMessage(playerTwoName)),
-        DELAY_MS
-      );
+      setTimeout(() => onGameOver(playerTwoName), DELAY_MS);
     }
   }, [
     playerOneHealth,
@@ -167,14 +163,12 @@ const Game = ({ onGameOver, playerOneName, playerTwoName, vsCPU = false }) => {
           playerName={playerOneName}
           health={playerOneHealth}
           maxHealth={MAX_HEALTH}
-          // TODO: rename to currentTrophies
           trophies={playerOneTrophies}
         />
         <Status
           playerName={playerTwoName}
           health={playerTwoHealth}
           maxHealth={MAX_HEALTH}
-          // TODO: rename to currentTrophies
           trophies={playerTwoTrophies}
         />
       </div>
