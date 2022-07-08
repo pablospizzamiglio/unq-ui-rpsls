@@ -40,18 +40,26 @@ function App() {
     setScreen(GAME_OVER);
   };
 
+  const resetTrophies = () => {
+    setPlayerOneTrophies(0);
+    setPlayerTwoTrophies(0);
+    setCpuTrophies(0);
+  };
+
+  const selectMode = (mode) => {
+    if (lastPlayedMode !== mode) {
+      resetTrophies();
+    }
+    setScreen(mode);
+    setLastPlayedMode(mode);
+  };
+
   return (
     <div className="App">
       {screen === MAIN_MENU && (
         <MainMenu
-          onOnePlayerClick={() => {
-            setScreen(ONE_PLAYER);
-            setLastPlayedMode(ONE_PLAYER);
-          }}
-          onTwoPlayersClick={() => {
-            setScreen(TWO_PLAYERS);
-            setLastPlayedMode(TWO_PLAYERS);
-          }}
+          onOnePlayerClick={() => selectMode(ONE_PLAYER)}
+          onTwoPlayersClick={() => selectMode(TWO_PLAYERS)}
         />
       )}
       {screen === ONE_PLAYER && (
@@ -78,7 +86,7 @@ function App() {
           onPlayAgainClick={() => setScreen(lastPlayedMode)}
           onMainMenuClick={() => {
             setScreen(MAIN_MENU);
-            setLastPlayedMode(null);
+            setLastPlayedMode(lastPlayedMode);
           }}
           playerName={winner}
         />
