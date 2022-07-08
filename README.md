@@ -7,7 +7,7 @@ En Windows descargar e instalar:
 - [Node.js LTS](https://nodejs.org/en/)
 - [git](https://git-scm.com/)
 
-En Ubuntu 20.04 LTS ejecutar en la consola:
+En Ubuntu 20.04 LTS ejecutar en una consola:
 
 ```bash
 sudo apt install nodejs npm git
