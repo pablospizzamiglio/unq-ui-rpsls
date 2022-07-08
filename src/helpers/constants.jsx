@@ -1,3 +1,15 @@
+import DonutImage from "../images/doughnut.png";
+import LizardImage from "../images/lizard.png";
+import MrXImage from "../images/mrx.png";
+import PaperImage from "../images/paper.png";
+import FullHeartImage from "../images/red-heart.png";
+import RockImage from "../images/rock.png";
+import ScissorsImage from "../images/scissors.png";
+import SpockImage from "../images/spock.png";
+import EmptyHeartImage from "../images/white-heart.png";
+
+export { FullHeartImage, EmptyHeartImage, DonutImage };
+
 export const MAIN_MENU = "MAIN_MENU";
 export const ONE_PLAYER = "ONE_PLAYER";
 export const TWO_PLAYERS = "TWO_PLAYERS";
@@ -19,22 +31,27 @@ export const SPOCK = "spock";
 export const cards = [
   {
     name: ROCK,
-    src: "/images/rock.png",
+    src: RockImage,
   },
   {
     name: PAPER,
-    src: "/images/paper.png",
+    src: PaperImage,
   },
   {
     name: SCISSORS,
-    src: "/images/scissors.png",
+    src: ScissorsImage,
   },
   {
     name: LIZARD,
-    src: "/images/lizard.png",
+    src: LizardImage,
   },
   {
     name: SPOCK,
-    src: "/images/spock.png",
+    src: SpockImage,
   },
 ];
+
+export const PLACEHOLDER_CARD = {
+  name: "placeholder",
+  src: MrXImage,
+};

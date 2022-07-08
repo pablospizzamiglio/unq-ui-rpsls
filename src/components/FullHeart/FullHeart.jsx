@@ -1,5 +1,7 @@
+import { FullHeartImage } from "helpers/constants";
+
 const FullHeart = () => {
-  return <img src={"/images/red-heart.png"} alt="Full Heart" />;
+  return <img src={FullHeartImage} alt="Full Heart" />;
 };
 
 export default FullHeart;

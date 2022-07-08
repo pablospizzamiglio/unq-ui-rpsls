@@ -1,5 +1,7 @@
+import { DonutImage } from "helpers/constants";
+
 const Donut = () => {
-  return <img src={"/images/doughnut.png"} alt="Donut" />;
+  return <img src={DonutImage} alt="Donut" />;
 };
 
 export default Donut;

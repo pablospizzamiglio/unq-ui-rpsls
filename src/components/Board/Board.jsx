@@ -1,10 +1,6 @@
 import Card from "components/Card/Card";
+import { PLACEHOLDER_CARD } from "helpers/constants";
 import "./Board.css";
-
-const placeholderCard = {
-  name: "placeholder",
-  src: "/images/mrx.png",
-};
 
 const Board = ({ cardA, cardB }) => {
   return (
@@ -13,14 +9,14 @@ const Board = ({ cardA, cardB }) => {
         {cardA && cardB ? (
           <Card card={cardA} />
         ) : (
-          <Card card={placeholderCard} />
+          <Card card={PLACEHOLDER_CARD} />
         )}
       </div>
       <div className="board-item">
         {cardA && cardB ? (
           <Card card={cardB} />
         ) : (
-          <Card card={placeholderCard} />
+          <Card card={PLACEHOLDER_CARD} />
         )}
       </div>
     </div>
