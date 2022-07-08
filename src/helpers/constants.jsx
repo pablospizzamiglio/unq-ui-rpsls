@@ -28,7 +28,7 @@ export const SCISSORS = "scissors";
 export const LIZARD = "lizard";
 export const SPOCK = "spock";
 
-export const cards = [
+export const CARDS = [
   {
     name: ROCK,
     src: RockImage,

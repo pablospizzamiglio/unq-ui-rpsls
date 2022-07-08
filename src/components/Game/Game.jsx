@@ -3,7 +3,7 @@ import Board from "components/Board/Board";
 import CardPicker from "components/CardPicker/CardPicker";
 import Status from "components/Status/Status";
 import { nextRandomElement } from "helpers/arrays";
-import { cards, CHOOSE, DELAY_MS, TIE } from "helpers/constants";
+import { CARDS, CHOOSE, DELAY_MS, TIE } from "helpers/constants";
 import { beats } from "helpers/game";
 import { decrease, increase } from "helpers/numbers";
 import {
@@ -13,7 +13,7 @@ import {
 import { useCallback, useEffect, useState } from "react";
 import "./Game.css";
 
-const nextCard = () => nextRandomElement(cards);
+const nextCard = () => nextRandomElement(CARDS);
 
 const Game = ({
   onGameOver,
@@ -134,14 +134,14 @@ const Game = ({
       {turn === 1 && (
         <CardPicker
           onChoose={handlePlayerOneChoice}
-          choices={cards}
+          choices={CARDS}
           disabled={inputDisabled}
         />
       )}
       {turn === 2 && (
         <CardPicker
           onChoose={handlePlayerTwoChoice}
-          choices={cards}
+          choices={CARDS}
           disabled={inputDisabled}
         />
       )}
