@@ -1,5 +1,9 @@
 # Rock Paper Scissors Lizard Spock
 
+## Demo
+
+Hay una demo del proyecto en funcionamiento disponible en el siguiente [link](https://pablospizzamiglio.github.io/unq-ui-pablo-spizzamiglio-trabajo-final/).
+
 ## Requerimientos
 
 En Windows descargar e instalar:
@@ -30,7 +34,7 @@ git clone git@github.com:pablospizzamiglio/unq-ui-pablo-spizzamiglio-trabajo-fin
 ### `npm install`
 
 Descarga e instala todas las dependencias del proyecto creando el directorio `node_modules`.
-Este comando debe ser ejecutado luego de clonar el proyecto y volver a hacerlo si el archivo `package.json` es actualizado.
+Este comando debe ser ejecutado luego de clonar el proyecto y en aquellos casos en que el archivo `package.json` haya sido actualizado.
 
 ### `npm start`
 
@@ -44,3 +48,7 @@ También se podrán visualizar errores detectados en la consola.
 
 Prepara la aplicación para su publicación dejándola en el directorio `build`.\
 Crea un paquete React en modo producción y lo optimiza para obtener un mejor desempeño.
+
+### `npm run deploy`
+
+Ejecuta `npm run build` y luego `gh-pages -d build` para publicar la aplicación en [GitHub Pages](https://pages.github.com/).
