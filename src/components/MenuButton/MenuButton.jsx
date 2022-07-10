@@ -3,7 +3,7 @@ import "./MenuButton.css";
 
 const MenuButton = ({ onClick, children }) => {
   return (
-    <AnimatedButton className={"menu-button"} onClick={onClick}>
+    <AnimatedButton className="menu-button" onClick={onClick}>
       {children}
     </AnimatedButton>
   );
