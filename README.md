@@ -34,15 +34,14 @@ git clone git@github.com:pablospizzamiglio/unq-ui-pablo-spizzamiglio-trabajo-fin
 ### `npm install`
 
 Descarga e instala todas las dependencias del proyecto creando el directorio `node_modules`.
-Este comando debe ser ejecutado luego de clonar el proyecto y en aquellos casos en que el archivo `package.json` haya sido actualizado.
+Este comando debe ser ejecutado primero para poder correr la aplicación localmente y luego de cada `git pull` que traiga cambios nuevos en el archivo `package.json` o `package-lock.json`.
 
 ### `npm start`
 
-Ejecuta la aplicación en modo desarrollo.\
+Ejecuta la aplicación localmente en modo desarrollo.\
 Abrir [http://localhost:3000](http://localhost:3000) para visualizarla en el navegador.
 
-La página será recargada con cada cambio.\
-También se podrán visualizar errores detectados en la consola.
+La página será recargada con cada cambio y además se podrán visualizar errores detectados en la consola.
 
 ### `npm run build`
 
