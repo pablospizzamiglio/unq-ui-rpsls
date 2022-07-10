@@ -9,11 +9,11 @@ const CardButton = ({ onClick, card, disabled }) => {
 
   return (
     <AnimatedButton
-      className={"card-button"}
+      className="card-button"
       onClick={handleOnClick}
       disabled={disabled}
     >
-      <Card card={card} />
+      <Card card={card} showTitle />
     </AnimatedButton>
   );
 };
