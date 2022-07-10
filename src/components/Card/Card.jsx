@@ -1,9 +1,10 @@
 import "./Card.css";
 
-const Card = ({ card }) => {
+const Card = ({ card, showTitle = false }) => {
   return (
     <div className="card border">
-      <img src={card.src} alt={card.name} />
+      <img className="card-image" src={card.src} alt={card.name} />
+      {showTitle && <p className="card-title">{card.name}</p>}
     </div>
   );
 };

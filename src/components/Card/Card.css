@@ -1,5 +1,6 @@
 .card {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -35,9 +36,15 @@
   }
 }
 
-.card img {
+.card-image {
   text-transform: capitalize;
   display: block;
   width: 100%;
   aspect-ratio: 4 / 3;
+}
+
+.card-title {
+  text-transform: capitalize;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
 }
