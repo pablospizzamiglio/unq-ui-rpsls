@@ -16,5 +16,23 @@
 }
 
 .trophy-count {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
+}
+
+@media (min-width: 576px) {
+  .trophy-count {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .trophy-count {
+    font-size: 1.75rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .trophy-count {
+    font-size: 2rem;
+  }
 }

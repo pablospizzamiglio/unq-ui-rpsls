@@ -18,23 +18,23 @@
 }
 
 .announcer-message {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   text-transform: capitalize;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 576px) {
   .announcer-message {
     font-size: 1.5rem;
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
   .announcer-message {
-    font-size: 1.8rem;
+    font-size: 1.75rem;
   }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 992px) {
   .announcer-message {
     font-size: 2rem;
   }
