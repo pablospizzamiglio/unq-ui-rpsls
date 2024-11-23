@@ -36,18 +36,17 @@ git clone git@github.com:pablospizzamiglio/unq-ui-rpsls.git
 Descarga e instala todas las dependencias del proyecto creando el directorio `node_modules`.\
 Es el primer comando que necesita ser ejecutado antes de poder correr la aplicación localmente. Debe hacerse la primera vez y luego de cada `git pull` que traiga consigo cambios en los archivos `package.json` y `package-lock.json` ya que podrían contener nuevas dependencias o versiones actualizadas de las mismas.
 
-### `npm start`
+### `npm run dev`
 
 Ejecuta la aplicación localmente en modo desarrollo.\
-Abrir [http://localhost:3000](http://localhost:3000) para visualizarla en el navegador.
+Abrir [http://localhost:5173/unq-ui-rpsls/](http://localhost:5173/unq-ui-rpsls/) para visualizarla en el navegador.
 
 La página será recargada con cada cambio y además se podrán visualizar errores detectados en la consola.
 
 ### `npm run build`
 
-Prepara la aplicación para su publicación dejándola en el directorio `build`.\
-Crea un paquete React en modo producción y lo optimiza para obtener un mejor desempeño.
+Prepara la aplicación para su publicación dejándola en el directorio `dist`.\
 
 ### `npm run deploy`
 
-Ejecuta `npm run build` y luego `gh-pages -d build` para publicar la aplicación en [GitHub Pages](https://pages.github.com/).
+Ejecuta `npm run build` y luego `gh-pages -d dist` para publicar la aplicación en [GitHub Pages](https://pages.github.com/).
