@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="/unq-ui-rpsls/favicon.ico" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta name="description" content="Rock Paper Scissors Lizard Spock" />
@@ -10,7 +10,7 @@
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="/unq-ui-rpsls/manifest.json" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -27,8 +27,6 @@
       rel="stylesheet"
     />
     <title>Rock Paper Scissors Lizard Spock</title>
-    <script type="module" crossorigin src="/unq-ui-rpsls/assets/index-BYTkRRCZ.js"></script>
-    <link rel="stylesheet" crossorigin href="/unq-ui-rpsls/assets/index-HL8RPPSd.css">
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
