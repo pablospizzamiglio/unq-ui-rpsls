@@ -2,7 +2,7 @@
 
 ## Demo
 
-Hay una demo del proyecto en funcionamiento disponible en el siguiente [link](https://pablospizzamiglio.github.io/unq-ui-pablo-spizzamiglio-trabajo-final/).
+Hay una demo del proyecto en funcionamiento disponible en el siguiente [link](https://pablospizzamiglio.github.io/unq-ui-rpsls).
 
 ## Requerimientos
 
@@ -20,13 +20,13 @@ sudo apt install nodejs npm git
 Para ambos sistemas operativos, ejecutar en una consola:
 
 ```bash
-git clone https://github.com/pablospizzamiglio/unq-ui-pablo-spizzamiglio-trabajo-final.git
+git clone https://github.com/pablospizzamiglio/unq-ui-rpsls.git
 ```
 
 O con SSH:
 
 ```bash
-git clone git@github.com:pablospizzamiglio/unq-ui-pablo-spizzamiglio-trabajo-final.git
+git clone git@github.com:pablospizzamiglio/unq-ui-rpsls.git
 ```
 
 ## Comandos
